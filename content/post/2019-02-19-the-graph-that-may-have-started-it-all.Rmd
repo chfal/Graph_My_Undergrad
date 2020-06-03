@@ -1,0 +1,22 @@
+---
+title: The graph that (may have) started it all...
+author: chfal
+date: '2019-02-19'
+slug: the-graph-that-may-have-started-it-all
+categories: []
+tags: []
+---
+```{r, echo=FALSE, out.width="100%", fig.align="center"}
+knitr::include_graphics("/img/organic-chemistry-graph.jpeg")
+
+```
+
+This is one of the first graphs I made by myself with original data, which I was super proud of!
+
+The context for this data is that it came from the organic chemistry class grade spreadsheet, which was sent anonymously to the class after any graded work was returned. Data points are individual students’ performances on the quizzes on the x-axis and their amount of extra credit points amassed by the end of the semester on the y-axis. Extra credit points were obtained by going to “discussion” sections and correctly solving problems on the board.
+
+I predicted that there would be a high correlation between the two variables because people who do well on the chemistry quizzes have a good understanding of the material, and therefore are able to easily gain extra credit points. The correlation coefficient, however, was only .34, which is low, so alternative hypotheses should be considered.
+
+One such hypothesis explains the peak in the middle: Perhaps students who had decent grades, but not A’s or B’s, decided to be extra proactive to get extra credit points to bump their grades up to the A range. There are also other factors, such as scheduling issues (you had to be able to go to extra classes to get discussion points, which obviously didn’t work for everyone’s schedule), the type of problems presented (some problems were easy and allowed students to amass points quickly), and the type of student you were (you had to be brave enough to stand up and do an organic chemistry problem on the board, which is, obviously, challenging.)
+
+Either way, whatever the factors may be, this concept is the graph that started this project, because that’s when I realized I could combine my questions about real-life situations in my life (mostly about organic chemistry, due to its omnipresent nature in my first semester) and marry it with my desire to learn and practice R.

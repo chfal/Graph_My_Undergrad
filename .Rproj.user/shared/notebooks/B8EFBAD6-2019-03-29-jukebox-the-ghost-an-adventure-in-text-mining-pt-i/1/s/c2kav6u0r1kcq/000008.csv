@@ -1,0 +1,7 @@
+"0","#remove stop words
+jtg_tbl <- as_tibble(jtg) %>%
+  anti_join(stop_words) %>%
+  anti_join(mystopwords)
+"
+"2","Error in as_tibble(jtg) : object 'jtg' not found
+"

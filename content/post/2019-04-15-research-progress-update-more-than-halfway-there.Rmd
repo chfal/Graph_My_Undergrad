@@ -1,0 +1,26 @@
+---
+title: 'Research Progress Update: More than Halfway there!'
+author: chfal
+date: '2019-04-15'
+slug: research-progress-update-more-than-halfway-there
+categories: []
+tags: []
+---
+
+This is an update to my previous post in which I had only done one week of image analysis.
+
+```{r, echo=FALSE, out.width="100%"}
+knitr::include_graphics("/img/Image_Total.jpeg")
+```
+However, 9.5 weeks later, I am finally done with analyzing over 400 images of lizard claw shape - progress on my independent research project!
+
+The above graph shows progress as time goes on, adding up to 400. There are a lot of plateaus in the graph, especially in the middle. This is due to the fact that school exists, and I got really busy as the semester picked up. It's also due to the fact that halfway through, I had to take on a sub-project for the research, using a different software to track different metrics, and took a week off to complete that, around Weeks 4-5.
+
+The below image shows the number of images completed per day. Clearly, either I got a lot of images done, or no images at all. Using Dplyr's _filter()_ function, I selected only the days in which the image number was greater than zero and calculated an arithmetic mean of 19.55 images per day.
+
+```{r, echo=FALSE, out.width="100%"}
+knitr::include_graphics("/img/Image_total2.jpeg")
+```
+19.55 images per day is approximately 80 minutes of work, based on an estimate of average four minutes per image. I did not track this, although perhaps the date and time of the creation of the image analysis files written down by my computer may be a good indicator.
+
+ We are not yet done with data collection, however, as we must collect images from a third population in late May/early June, so that will be approximately 150 more images (and, of course, more graphs to come!)

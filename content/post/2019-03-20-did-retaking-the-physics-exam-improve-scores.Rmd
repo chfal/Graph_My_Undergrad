@@ -1,0 +1,28 @@
+---
+title: Did Retaking the Physics Exam Improve Scores?
+author: chfal
+date: '2019-03-20'
+slug: did-retaking-the-physics-exam-improve-scores
+categories: []
+tags: []
+---
+
+A few weeks ago, there was a physics exam, and many were disappointed with the scores. In fact, the average was a 54% (and that's with a six-point curve added to every result). To give students an opportunity to improve (and possibly to improve his end-of-course satisfaction ratings), my professor offered the opportunity of a retake, which was averaged together with the original score.
+
+One hiccup was that the second exam was out of eighty points rather than one hundred. To scale the data, I used dplyr's mutate() function to multiply the retake exam scores by 100/80, thus scaling the data such that both were out of one hundred and thus comparable.
+
+```{r, out.width="100%", fig.align='center'}
+knitr::include_graphics("/img/Physics_Retake_Exam2.jpeg")
+```
+
+I used the PairedData package to pair these data together to create this graphic above. Lines represent the trajectory of each individual student's grade across the two exams. Some students had high grades originally and did not opt to take the second exam, thus, there is bias in which students are represented as the package automatically removes all empty variables. However, there is a general trend of the lines traveling up and to the right, suggesting that there was an overall improvement in performance.
+
+```{r}
+library(tidyverse)
+physics <- read.csv(file="C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/113_SCORES_APRIL_6.csv",fileEncoding="UTF-8-BOM")
+physics_new <- physics %>%
+  mutate(R.t=R.t*100/80)
+t.test(physics_new$Ex1,physics_new$R.t,paired=TRUE,alternative="less")
+```
+
+Lastly, I ran a two-sample T-test which suggested that on average, the net improvement by the retake exam was about 30 points, which is not chump change when it comes to a difficult class such as physics.

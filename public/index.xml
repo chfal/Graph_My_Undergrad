@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Graph My Undergrad</title>
+    <link>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/</link>
+    <description>Recent content on Graph My Undergrad</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 30 Apr 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Welcome to the new site!</title>
+      <link>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/04/30/welcome-to-the-new-site/</link>
+      <pubDate>Tue, 30 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/04/30/welcome-to-the-new-site/</guid>
+      <description>Welcome!Welcome to the my brand-new blog! This blog is written using the blogdown package in R that was developed by Yi Hui, created on the Hugo platform, and served on Netlify and Github.
+The creationRecreating my blog is the largest challenge I’ve embarked upon in R so far. It involved using several brand-new tools I’ve never used before, including the RStudio Community website, GitHub, Hugo, and obviously, blogdown.</description>
+    </item>
+    
+    <item>
+      <title>R Ladies Meetup #2</title>
+      <link>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/04/16/r-ladies-meetup-2/</link>
+      <pubDate>Tue, 16 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/04/16/r-ladies-meetup-2/</guid>
+      <description>Today I went to another R-Ladies meetup! Not only was the impostor syndrome of last time assuaged, but the postdoc in my lab also came, which was nice because that meant I also knew someone.
+This month’s meetup was called Intro to Shiny! Shiny is a package in R that creates web-based apps that allow users to play with data in an easy and accessible way. The hard part, of course, is on the developer’s end - making and hosting Shinies are difficult!</description>
+    </item>
+    
+    <item>
+      <title>Research Progress Update: More than Halfway there!</title>
+      <link>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/04/15/research-progress-update-more-than-halfway-there/</link>
+      <pubDate>Mon, 15 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/04/15/research-progress-update-more-than-halfway-there/</guid>
+      <description>This is an update to my previous post in which I had only done one week of image analysis.
+However, 9.5 weeks later, I am finally done with analyzing over 400 images of lizard claw shape - progress on my independent research project!
+The above graph shows progress as time goes on, adding up to 400. There are a lot of plateaus in the graph, especially in the middle. This is due to the fact that school exists, and I got really busy as the semester picked up.</description>
+    </item>
+    
+    <item>
+      <title>Jukebox the Ghost: An Adventure in Text Mining, pt. II</title>
+      <link>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/04/03/jukebox-the-ghost-an-adventure-in-text-mining-pt-ii/</link>
+      <pubDate>Wed, 03 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/04/03/jukebox-the-ghost-an-adventure-in-text-mining-pt-ii/</guid>
+      <description>This is an update to my previous post, where I graphed word frequencies in the total words used by the band Jukebox the Ghost in all of their songs altogether.
+For this post, I’ve made four separate graphs, corresponding to each of the four released albums (Live and Let Ghosts (2008), Everything Under the Sun (2010), Safe Travels (2012), and Off to the Races (2018)).
+And here are the graphs!</description>
+    </item>
+    
+    <item>
+      <title>Jukebox the Ghost: An Adventure in Text Mining, pt. I</title>
+      <link>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/03/29/jukebox-the-ghost-an-adventure-in-text-mining-pt-i/</link>
+      <pubDate>Fri, 29 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/03/29/jukebox-the-ghost-an-adventure-in-text-mining-pt-i/</guid>
+      <description>I had the pleasure of seeing one of my favorite bands last night at the Royale in Boston. Jukebox the Ghost is a power-pop, Queen-inspired band and I recommend them highly.
+One thing I noticed when listening to the songs is that they have a lot of similar words and concepts. Words such as “stars,” “people,” and “everybody” seem to come up again and again in my favorite songs, which include Jumpstarted, Victoria, Everybody’s Lonely, and A La La.</description>
+    </item>
+    
+    <item>
+      <title>My First R Meetup</title>
+      <link>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/03/22/my-first-r-meetup/</link>
+      <pubDate>Fri, 22 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/03/22/my-first-r-meetup/</guid>
+      <description>On the hunt for ways to improve my knowledge of R, I stumbled upon the greater Boston area chapter of R-Ladies and decided to go to one of their meetups. As luck would have it, I did not have to wait very long for one of the monthly meetings to occur: Upon joining, the next meetup was only two days away, so I swallowed my anxieties regarding impostor syndrome and decided to go.</description>
+    </item>
+    
+    <item>
+      <title>Did Retaking the Physics Exam Improve Scores?</title>
+      <link>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/03/20/did-retaking-the-physics-exam-improve-scores/</link>
+      <pubDate>Wed, 20 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/03/20/did-retaking-the-physics-exam-improve-scores/</guid>
+      <description>A few weeks ago, there was a physics exam, and many were disappointed with the scores. In fact, the average was a 54% (and that’s with a six-point curve added to every result). To give students an opportunity to improve (and possibly to improve his end-of-course satisfaction ratings), my professor offered the opportunity of a retake, which was averaged together with the original score.
+One hiccup was that the second exam was out of eighty points rather than one hundred.</description>
+    </item>
+    
+    <item>
+      <title>A Statistical Breakdown of the Online Dating Experience</title>
+      <link>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/03/14/a-statistical-breakdown-of-the-online-dating-experience/</link>
+      <pubDate>Thu, 14 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/03/14/a-statistical-breakdown-of-the-online-dating-experience/</guid>
+      <description>Like many college students, I have used a dating app to look for “that special someone.” Unlike other college students, I am most strongly interested in doing it for science.
+Running The TestsOnce I had swiped enough, noting down whether I had swiped right (yes) or left (no) and the person’s gender (Side Note #1: I’m bisexual), I collected this data about my choices.
+## females males## no 40 893## yes 19 48I wanted to test whether there is a difference in the number of women I swiped yes on versus the number of men (Side Note #2: While gender is not a binary, Bumble categorizes it as such).</description>
+    </item>
+    
+    <item>
+      <title>iNaturalist Graphs</title>
+      <link>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/02/25/inaturalist-graphs/</link>
+      <pubDate>Mon, 25 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/02/25/inaturalist-graphs/</guid>
+      <description>Along with many biologists, ecologists, and general wildlife-lovers, I am an avid user of iNaturalist, and I try to take pictures of organisms I encounter in the field or even around my home city, Boston. (You can see another post I’ve written on the subject here).
+knitr::include_graphics(&amp;quot;/img/inatgraph1.jpeg&amp;quot;)Unfortunately, one limitation, the “invertebrate bias,” is present in the data. A study published by Dr. Mark Titley from Cambridge University Museum of Zoology indicates that invertebrates are not as readily studied by biologists.</description>
+    </item>
+    
+    <item>
+      <title>The graph that (may have) started it all...</title>
+      <link>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/02/19/the-graph-that-may-have-started-it-all/</link>
+      <pubDate>Tue, 19 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/02/19/the-graph-that-may-have-started-it-all/</guid>
+      <description>This is one of the first graphs I made by myself with original data, which I was super proud of!
+The context for this data is that it came from the organic chemistry class grade spreadsheet, which was sent anonymously to the class after any graded work was returned. Data points are individual students’ performances on the quizzes on the x-axis and their amount of extra credit points amassed by the end of the semester on the y-axis.</description>
+    </item>
+    
+    <item>
+      <title>All in a Week&#39;s Work!</title>
+      <link>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/02/14/all-in-a-week-s-work/</link>
+      <pubDate>Thu, 14 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/02/14/all-in-a-week-s-work/</guid>
+      <description>This is the first post on this blog that actually has a graph on it!
+One project for my research currently involves measuring 500 different images of Anolis claws. This is no small task, considering that each image takes up to four minutes to complete. This graph shows how many Anolis images I was able to complete in the span of one week, which is looking pretty good at 155 images.</description>
+    </item>
+    
+    <item>
+      <title>And We&#39;re Off to the Races!</title>
+      <link>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/02/12/test-post/</link>
+      <pubDate>Tue, 12 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/02/12/test-post/</guid>
+      <description>Data collection has officially begun!This morning sparked the first day of tracking commute times! This semester I have a 9 a.m. three days a week (M/W/F) and an 8 a.m. two days a week (T/R). This begs the question…why does my 8 a.m. commute seem shorter? Is it just an early-morning time warp? Is it the avoidance of the peak rush hour times, making my commute actually quite significantly shorter?</description>
+    </item>
+    
+    <item>
+      <title>About Me</title>
+      <link>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/about/</link>
+      <pubDate>Thu, 05 May 2016 21:48:51 -0700</pubDate>
+      
+      <guid>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/about/</guid>
+      <description>Can anything be turned into a statistic?
+Hi, I’m Cleo! I&#39;m an undergraduate biology major with an undeclared math minor, and I’m currently learning R. After using R’s data sets to run tests and create graphs, I’ve decided to start collecting my own. On this blog, I&#39;ll collect data on a few different projects about commute times and lengths (critical to anyone who lives in the city), make progress on my independent research, and track exam scores from classes.</description>
+    </item>
+    
+  </channel>
+</rss>

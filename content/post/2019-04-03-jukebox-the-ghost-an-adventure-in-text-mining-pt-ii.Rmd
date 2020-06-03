@@ -1,0 +1,45 @@
+---
+title: 'Jukebox the Ghost: An Adventure in Text Mining, pt. II'
+author: chfal
+date: '2019-04-03'
+slug: jukebox-the-ghost-an-adventure-in-text-mining-pt-ii
+categories: []
+tags: []
+---
+This is an update to my previous post, where I graphed word frequencies in the total words used by the band Jukebox the Ghost in all of their songs altogether.
+
+For this post, I've made four separate graphs, corresponding to each of the four released albums _(Live and Let Ghosts (2008), Everything Under the Sun (2010), Safe Travels (2012)_, and _Off to the Races (2018))_.
+
+And here are the graphs!
+
+Live and Let Ghosts
+```{r,echo=FALSE, out.width="100%"}
+knitr::include_graphics("/img/Live_And_Let_Ghosts.jpeg")
+```
+
+Everything Under the Sun
+```{r,echo=FALSE, out.width="100%"}
+knitr::include_graphics("/img/Everything_Under_The_Sun.jpeg")
+```
+
+Safe Travels
+```{r,echo=FALSE, out.width="100%"}
+knitr::include_graphics("/img/Safe_Travels.jpeg")
+
+```
+
+Off to the Races
+```{r,echo=FALSE, out.width="100%"}
+knitr::include_graphics("/img/Off_To_The_Races.jpeg")
+```
+
+
+When I made these graphs, I was hoping that when I used the n_top(10) function, which takes only the top 10 of each observations, it would yield only 10 bars. However, in some observations, the top 10 observations sometimes turned into the top 15 or 16 words, due to the repetitive nature of the songs. 
+
+In addition, one of my former professors heard about this project and recommended an article that showed that generally, [songs have become more repetitive over time](https://pudding.cool/2017/05/song-repetition/). While that article focuses solely on the compressibility of songs, I was intrigued. Jukebox the Ghost started out in a very experimental way, eventually finding itself (in my opinion) somewhere between the second and third album, slotting itself into a genre of piano pop.
+
+The graph below answers that question. Assuming the repetitiveness of songs is in some way correlated to the number of discrete words in each album, the number of different words in their songs over time does generally seem to be shrinking.
+
+```{r,echo=FALSE, out.width="100%"}
+knitr::include_graphics("/img/Word_Count_Over_Time.jpeg")
+```

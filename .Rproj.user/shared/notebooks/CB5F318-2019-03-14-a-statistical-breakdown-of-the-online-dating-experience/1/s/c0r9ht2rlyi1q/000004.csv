@@ -1,0 +1,4 @@
+"0","as.tibble(x=c(40,19),y=c(893,48))
+"
+"2","`as.tibble()` is deprecated, use `as_tibble()` (but mind the new semantics).
+[90mThis warning is displayed once per session.[39m"

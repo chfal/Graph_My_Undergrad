@@ -1,0 +1,26 @@
+---
+title: Welcome to the new site!
+author: chfal
+date: '2019-04-30'
+slug: welcome-to-the-new-site
+categories: []
+tags: []
+---
+
+# Welcome!
+
+Welcome to the my brand-new blog! This blog is written using the [blogdown](https://bookdown.org/yihui/blogdown/) package in R that was developed by Yi Hui, created on the [Hugo](https://gohugo.io/) platform, and served on Netlify and Github.
+
+## The creation
+Recreating my blog is the largest challenge I've embarked upon in R so far. It involved using several brand-new tools I've never used before, including the RStudio Community website, GitHub, Hugo, and obviously, blogdown.
+
+The creation process, for those interested, was generally:
+
+1) Install the blogdown package. The blogdown package allows a user to run code to create a blank website with example posts so as to learn the syntax and how to make everything together. As I've come to understand it, Blogdown creates a file with four folders: Content (where the posts go), Static (Where images and figures that aren't made directly in R go), Public (Copied from static), and themes (the appearance of the site). It took me a lot of time to understand where to put things and the purpose of each folder.
+2) I migrated over my past posts. This was challenging and I realized I have to be more organized with my code and projects because some of the code I had written was incredibly lazy (pro tip: making a csv and naming it "csv1.csv" is not a great move). However, this was a great way to learn Blogdown and I followed very closely Yi Hui's book on how to do this.
+3) 
+
+
+### Special thanks to the R community!
+
+I had a hard time getting the iamges to load into my website. I tried both using knitr's _include graphics()_ function and HTML syntax but neither worked for days. It was a problem I kept troubleshooting, checking Stack Overflow answers, and re-referencing the R book. Finally, after being fairly certain that I wasn't going to solve the problem by myself, I asked both the postdoc in my lab and also made an RStudio community account to ask my question. Within 12 hours of posting my question, users in the community came to my rescue and solved the problem I'd been struggling with for almost a week!

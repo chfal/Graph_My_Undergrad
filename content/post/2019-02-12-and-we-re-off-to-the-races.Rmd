@@ -1,0 +1,17 @@
+---
+title: And We're Off to the Races!
+author: CHFal
+date: '2019-02-12'
+slug: test-post
+categories: []
+tags: []
+---
+
+```{r,echo=FALSE, out.width="50%", fig.align='center'}
+knitr::include_graphics("/img/mbta_tracker_image.png")
+```
+
+Data collection has officially begun!
+This morning sparked the first day of tracking commute times! This semester I have a 9 a.m. three days a week (M/W/F) and an 8 a.m. two days a week (T/R). This begs the question…why does my 8 a.m. commute seem shorter? Is it just an early-morning time warp? Is it the avoidance of the peak rush hour times, making my commute actually quite significantly shorter?
+
+I plan on tracking this my commute all semester, so hopefully there’ll be an interesting trend in the data!

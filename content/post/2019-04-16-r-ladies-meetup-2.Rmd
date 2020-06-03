@@ -1,0 +1,22 @@
+---
+title: 'R Ladies Meetup #2'
+author: chfal
+date: '2019-04-16'
+slug: r-ladies-meetup-2
+categories: []
+tags: []
+---
+
+Today I went to another R-Ladies meetup! Not only was the impostor syndrome of last time assuaged, but the postdoc in my lab also came, which was nice because that meant I also knew someone.
+
+This month's meetup was called Intro to Shiny! Shiny is a package in R that creates web-based apps that allow users to play with data in an easy and accessible way. The hard part, of course, is on the developer's end - making and hosting Shinies are difficult!
+
+```{r, echo=FALSE, out.width="50%", fig.align='center'}
+knitr::include_graphics("/img/shiny.png")
+```
+
+The seminar was very informative, although it did go a little over my head at times. The presenter, R-Ladies coordinator Marianna Foos of Biogen, told us that there are basically two parts to a Shiny: The "server" or backend with the nitty-gritty code and the UI, or the front end of the app where the user gets to play around with the data. She shared four examples with us, which I am sure I am going to poach code from later once I start making my own with my own data. She also emphasized the importance of sharing Shinies on RStudio Connect or shinyapps.io with our audiences.
+
+While I am unfortunately unable to make a Shiny with my current R skills, it is  something I am hoping to work on in the future. It's also unclear how I would get my data into Shiny, as Marianna said that the best way to do it is through SQL, a programming language for databases that I have very little experience in.
+
+That being said, ironically, although the meetup's topic of discussion was much more challenging for me than last month's, I felt less impostor syndrome, possibly due to my friend & labmate attending with me, and also because I had gone last month so I did recognize some of the faces. So in conclusion it was still a pretty good experience and I did stay around at the end to do some networking. (The one downside was that I didn't get any new stickers.)
