@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.72.0" />
+
+
+<title>Tracking My Nightmarish Commute - Graph My Undergrad</title>
+<meta property="og:title" content="Tracking My Nightmarish Commute - Graph My Undergrad">
+
+
+  <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/logo.jpg"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://github.com/chfal">GitHub</a></li>
+    
+    <li><a href="https://twitter.com/chfalvey">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">5 min read</span>
+    
+
+    <h1 class="article-title">Tracking My Nightmarish Commute</h1>
+
+    
+    <span class="article-date">2019-06-27</span>
+    
+
+    <div class="article-content">
+      <p>At long last, I&rsquo;ve gotten around to playing with the data I&rsquo;ve collected all semester tracking my commute, which I promised to do pretty much the second I started this blog (<a href="http://graphmyundergrad.rbind.io/2019/02/12/test-post/">see my first post</a>). I have a pretty complex commute - I take the MBTA&rsquo;s green line into Park Street and then connect to the red line, so I usually leave the house 1 hour and 15 minutes before class starts.</p>
+<p>To collect this data set, during my commute, I wrote down whether I was leaving the house to get to my 8 a.m. class (leaving the house at ~7 a.m., early) or my 9 a.m. class (leaving the house at ~8 a.m., late), and recorded the time at various stops on my commute.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">head</span>(commute)
+</code></pre></div><pre><code>## # A tibble: 6 x 11
+##   date  commute_type time_left_house time_boarded_tr~ type_of_train
+##   &lt;chr&gt; &lt;chr&gt;        &lt;drtn&gt;          &lt;chr&gt;            &lt;chr&gt;        
+## 1 2/11~ late         07:40           7:45:00 AM       D            
+## 2 2/12~ early        06:45           6:52:00 AM       39 - 7:08 @ ~
+## 3 2/13~ late         07:40           7:49:00 AM       D            
+## 4 2/14~ early        06:42           6:53:00 AM       D            
+## 5 2/15~ late         07:44           7:48:00 AM       D            
+## 6 2/19~ early        06:42           6:47:00 AM       D            
+## # ... with 6 more variables: time_at_park &lt;chr&gt;, time_red_line &lt;chr&gt;,
+## #   time_jfk_umb &lt;chr&gt;, delayed_mbta &lt;chr&gt;, delayed_line &lt;chr&gt;, late &lt;chr&gt;
+</code></pre><h1 id="using-the-lubridate-package">Using the Lubridate Package</h1>
+<p>Below is a long string of cleaning I did to my data. I mutated all of my times using <em>mutate()</em> from the <em>dplyr</em> package, and used the <em>as.hms()</em> function in the <em>lubridate</em> package to turn my times into a format that would be readable for R (as many of you know, Excel <em>sucks</em> when it comes to dealing with dates/times. I also subsetted the data frame to include only my early or late commutes (sometimes I had to leave for a class at weird times if it was cancelled or meeting irregularly).</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">commute2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">mutate</span>(commute, time_left_house<span style="color:#f92672">=</span>hms<span style="color:#f92672">::</span><span style="color:#a6e22e">as.hms</span>(commute<span style="color:#f92672">$</span>time_left_house)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">mutate</span>(time_boarded_train<span style="color:#f92672">=</span>hms<span style="color:#f92672">::</span><span style="color:#a6e22e">as.hms</span>(commute<span style="color:#f92672">$</span>time_boarded_train)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">mutate</span>(time_at_park<span style="color:#f92672">=</span>hms<span style="color:#f92672">::</span><span style="color:#a6e22e">as.hms</span>(commute<span style="color:#f92672">$</span>time_at_park)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">mutate</span>(time_red_line<span style="color:#f92672">=</span>hms<span style="color:#f92672">::</span><span style="color:#a6e22e">as.hms</span>(commute<span style="color:#f92672">$</span>time_red_line)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">mutate</span>(time_jfk_umb<span style="color:#f92672">=</span>hms<span style="color:#f92672">::</span><span style="color:#a6e22e">as.hms</span>(commute<span style="color:#f92672">$</span>time_jfk_umb)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">mutate</span>(commute_length <span style="color:#f92672">=</span> <span style="color:#a6e22e">as.duration</span>(time_left_house<span style="color:#f92672">-</span>time_jfk_umb)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">mutate</span>(commute_length <span style="color:#f92672">=</span> <span style="color:#a6e22e">as.numeric</span>(commute_length)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">mutate</span>(commute_length <span style="color:#f92672">=</span> commute_length<span style="color:#f92672">/</span><span style="color:#ae81ff">60</span>) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">subset</span>(commute_type <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#34;neither&#34;</span>) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">subset</span>(type_of_train <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;D&#34;</span>)
+
+<span style="color:#75715e">#separate into late and early commutes</span>
+commute_early <span style="color:#f92672">&lt;-</span> commute2 <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">subset</span>(commute_type<span style="color:#f92672">==</span><span style="color:#e6db74">&#34;early&#34;</span>)
+
+commute_late <span style="color:#f92672">&lt;-</span> commute2 <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">subset</span>(commute_type<span style="color:#f92672">==</span><span style="color:#e6db74">&#34;late&#34;</span>)
+</code></pre></div><p>Limitations to this data set include the fact that sometimes I accidentally forgot to record the times of some things, leading to some &ldquo;N/A&rdquo; values. Other errors included the fact that there are many ways to get to my classes, but I only chose to examine the times I took the D line, which is by far the easiest commute for me, and thus the most common in the data set.</p>
+<h1 id="the-density-plot">The Density Plot</h1>
+<p>This density plot below shows the commute length in minutes and its frequency. We can see that my late commute tended to be longer, which is what I expected due to rush hour traffic. We can also see that there were a few instances where the MBTA was <em>super</em> delayed, leading to a really long commute (over one hour).</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggplot</span>(commute2, <span style="color:#a6e22e">aes</span>(commute_length, fill<span style="color:#f92672">=</span>commute_type)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_density</span>(alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">.7</span>) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">labs</span>(x<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Commute Length in Minutes&#34;</span>, title <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Density Plot Commute Times Spring 2019&#34;</span>) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">scale_x_reverse</span>() <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">scale_fill_manual</span>(values<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;blue&#34;</span>,<span style="color:#e6db74">&#34;red&#34;</span>))
+</code></pre></div><pre><code>## Warning: Removed 2 rows containing non-finite values (stat_density).
+</code></pre><p><!-- raw HTML omitted --></p>
+<h1 id="t---test">T - Test?</h1>
+<p>In an ideal world, I would&rsquo;ve liked to use a two-sample T-test to see if there was a difference between leaving early and leaving later due to rush hour, and how big that difference was. However, the <a href="http://www.sthda.com/english/wiki/normality-test-in-r">Shapiro-Wilk test</a> showed that my data was not normally distributed, so a two-sample T-test wouldn&rsquo;t have any meaning. You can also see the lack of normality in the density plot.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">shapiro.test</span>(commute_late<span style="color:#f92672">$</span>commute_length)
+</code></pre></div><pre><code>## 
+## 	Shapiro-Wilk normality test
+## 
+## data:  commute_late$commute_length
+## W = 0.8914, p-value = 0.01011
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">shapiro.test</span>(commute_early<span style="color:#f92672">$</span>commute_length)
+</code></pre></div><pre><code>## 
+## 	Shapiro-Wilk normality test
+## 
+## data:  commute_early$commute_length
+## W = 0.90847, p-value = 0.09425
+</code></pre><h1 id="final-results-displayed-on-this-really-cool-map">Final Results (displayed on this really cool map!)</h1>
+<p>I used lubridate to calculate mean durations in minutes and seconds of each segment of my commute, faceted by whether the commute was early or late. Here&rsquo;s the result, superimposed on my actual commute.</p>
+<p><!-- raw HTML omitted --></p>
+<p>Some things surprised me, although there are some issues with extrapolating from the arithmetic mean. No surprise, but the early commute was shorter than the later one occuring at rush hour by about five minutes, and it seemed that almost every segment of the later commute was slightly longer than the early commute, except for waiting for the green line. This was not surprising - I suspected the MBTA would be generally uniformly slowed down as rush hour picks up.</p>
+<h1 id="future-directions">Future Directions</h1>
+<p>Since I know my class schedule for next semester, I&rsquo;m going to continue tracking my commute to school to see if the train gets worse in the winter as compared to the spring. Many Bostonians hypothesize this is the case, and I&rsquo;d love to test that (at least from one commuter&rsquo;s perspective). I also plan on including more variables, because even though my commute on the MBTA technically ends once I get to the JFK UMass stop, I still have to get to campus, which is a mile away from the MBTA stop and sometimes I take the shuttle. There are definitely more things I&rsquo;d like to explore with this data set, and I hope to revisit it in September!</p>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+  </body>
+</html>
+

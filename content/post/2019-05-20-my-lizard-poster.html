@@ -1,0 +1,43 @@
+---
+title: My Lizard Poster
+author: chfal
+date: '2019-05-20'
+slug: my-lizard-poster
+categories: []
+tags: []
+---
+
+
+
+<p>After winning a small research grant with my university, I was asked to create a poster presentation about my work to show off at this year’s showcase, so I’m going to talk a little bit about that in this post!</p>
+<div id="the-research-group" class="section level1">
+<h1>The Research Group</h1>
+<p>I am the only undergraduate in the <a href="http://faculty.umb.edu/liam.revell/">Revell Lab</a>, a group of lovely people who study urban evolution <em>and</em> write R packages used for phylogenetic analyses (see addendum)*.</p>
+<p>My project is currently on the effects of urbanization on <em>Anolis</em> lizards. You can see another blog post I wrote for my mentor’s blog about it if you want to learn more about the process behind the poster, <a href="https://urbanevolution-litc.com/2019/05/20/claws-in-the-city/">here</a>. The general overview of the research is that urbanization affects animal body shape and we want to know how/if claw shape, an important body part for locomotion, is changing.</p>
+</div>
+<div id="my-poster" class="section level1">
+<h1>My Poster</h1>
+<p><img src="/img/poster_slide1.png" width="100%" /><img src="/img/poster_slide2.png" width="100%" /></p>
+</div>
+<div id="my-graph" class="section level1">
+<h1>My Graph</h1>
+<p>Most specifically, I’m proud of the graph that I made for this research! The graph below shows surface roughness, or Ra, which is a measure of shadows in a surface photo and made using a plugin in ImageJ. The boxplot shows the difference in habitat textures between the forest and the city.</p>
+<p>The boxplot is faceted by “use” and “random,” which refers to whether the surface was what the lizard was actually captured on or a random nearby perch. These photos are taken in the field to get a sampling of other options of surfaces that the lizards encounter in their respective habitats.</p>
+<p><img src="/img/perch_boxplot_use_random.jpeg" width="100%" /></p>
+<p>The plot shows that forest habitats were rougher than urban habitats (with a p-value of 8.08E-13!!!! Wow!!!), which makes sense when you consider that forest habitats include bark, sticks, and branches, whilst urban habitats include metal, glass, and concrete. The plot also shows a slight trend towards lizards being found on rougher surfaces in both habitats, but without behavioral data to back it up, we can’t make any wild claims about lizards choosing habitat.</p>
+<p>This graph was not that hard to make, as I’ve successfully made boxplots with fills and facets before, but I also ran all my stats (with help from the postdocs and my grad student) in R. So this was a fun R learning experience because I’ve never successfully run an ANOVA before! My ANOVA code is below:</p>
+<pre class="r"><code>perch_data &lt;- read.csv(file = &quot;surface_roughness_spreadsheet.csv&quot;, na = &quot;n/a&quot;)
+anova2 &lt;- aov(RA~Perch_Type+Context,data=perch_data)
+summary(anova2)</code></pre>
+<pre><code>##              Df Sum Sq Mean Sq F value  Pr(&gt;F)    
+## Perch_Type    1    778     778   10.70 0.00126 ** 
+## Context       1   4249    4249   58.43 8.1e-13 ***
+## Residuals   204  14835      73                    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 5 observations deleted due to missingness</code></pre>
+</div>
+<div id="addendum" class="section level1">
+<h1>Addendum</h1>
+<p>*Since this is mostly an R blog, if you’re interested in learning about the packages written by the lab, my PI writes a package called <a href="https://cran.r-project.org/web/packages/phytools/index.html">Phytools</a> and the postdoc writes a package called <a href="https://phangorn.org/">Phangorn</a>.</p>
+</div>

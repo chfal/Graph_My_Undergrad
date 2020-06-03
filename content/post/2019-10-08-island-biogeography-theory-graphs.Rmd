@@ -1,0 +1,76 @@
+---
+title: Island Biogeography Theory Graphs
+author: chfal
+date: '2019-10-08'
+slug: island-biogeography-theory-graphs
+categories: []
+tags: []
+---
+```{r, include=FALSE}
+library(tidyverse)
+ecology_lab_data <-read_csv("C:/Users/chfal/OneDrive - University of Massachusetts Boston/Ecology & Lab/Ecology_lab_data.csv")
+```
+
+### I made these cool graphs in ecology lab and now I want to share them!
+
+These graphs are about [Island Biogeography Theory](https://www.youtube.com/watch?v=5PyrRtSytmM), which was developed by ecologists E.O. Wilson and R. H. MacArthur in the 1960s. (E.O Wilson works at Harvard, and I got to meet him a few years ago!)
+
+Island Biogeography Theory is pretty intuitive, but if you're not an ecologist, I'll give you the down-low: Basically, as an island gets bigger, it can support more species because it has more resources. Also, if an island is closer to the mainland, it has a higher diversity of species because it's easier for animals come over to that island from the mainland. These variables are all related to each other on the log scale (haha, get it? The _log_ scale). But yeah. The logarithmic scale.
+
+# Collecting the Data: Ecology Lab is Fun!
+
+In my ecology lab class, we were testing whether logs at the [Ponkapoag Bog Trail]() were behaving as islands for species, in that they were harbouring species because they can be a specialized habitat. To do this, we went outside (yay!) and flipped over a bunch of logs to see what was underneath them. We also counted the number of species. Including [this cool salamander](https://www.massaudubon.org/learn/nature-wildlife/reptiles-amphibians/salamanders/salamander-species-in-massachusetts) (_Plethodon cinerea_, if you want to learn more about it.)
+
+```{r, echo=FALSE, out.width='50%', fig.align='center'}
+knitr::include_graphics("/img/salamander2.jpg")
+```
+
+While it was fun to go outside and dig around in the dirt for a few hours where I'd normally be in school, what wasn't fun were these _mutates()_. I had to do these mutates on the dataset because it's important that all the variables be on the logarithmic scale, but we had to add .01 to all of the data points because the log of zero is undefined, but .01 is negligible, and that allows logarithms to be taken for all the data points.
+```{r}
+ecology_lab_data <- ecology_lab_data %>%
+  mutate(log_area_log = log(log_area) + .01) %>%
+  mutate(log_species_log = log(log_species) + .01) %>%
+  mutate(log_distance_nearest_log = log(distance_nearest_log + .01)) %>%
+  mutate(under_log_area_log = log(under_log_area) + .01)
+```
+# The Graphs
+
+The graphs are here! These graphs relate the area of the log to the number of species found underneath it. We would expect that this should be positive if the logs are behaving as islands because they're harbouring species. We also expect that logs that are close to each other have a higher number of species because the species can travel back and forth.
+
+```{r, echo=FALSE}
+ggplot(ecology_lab_data, aes(under_log_area_log, log_species_log)) +
+  geom_point() +
+  geom_smooth(method="lm",se=FALSE) +
+  labs(title="The Species-Area Relationship of Tested Logs: Area Underneath Log", x="Logarithm of Area Under Overturned Log (cm^2)", y="Logarithm of Species Number", subtitle="y = .126x+6.771, R^2 = .0859, p = .664")
+
+ggplot(ecology_lab_data, aes(log_distance_nearest_log, log_species_log)) +
+  geom_point() +
+  geom_smooth(method="lm", se=FALSE) +
+  labs(title="The Species-Distance Relationship", x="Logarithm of the Distance from the Log to Another Log (cm)", y="Logarithm of Species Numbers", subtitle="y = .113x+.1941, R^2 = .04739, p=.8071")
+```
+
+
+## Faulty Assumptions = Nonsignificant Result!
+
+Without getting too technical, as you can see, the variables are all positively correlated with each other, but not significantly, as they should have been. Not one of the theories of island biogeography was significantly supported. So that begs the question - _are_ logs actually behaving as islands? In order to collect the data, we had to assume that the logs _were_ behaving as islands in order for the hypotheses to hold, but they might not have.
+
+I was wondering why the logs weren't behaving according to Island Biogeography Theory. I thought that it might have been due to our experimental error (there was a lot of it because at one point we were _definitely_ supposed to be counting species but I was _definitely_ distracted and playing with salamanders.)
+
+Then I decided to run a two-sample t-test. We recorded the number of species actually _under_ the log, but we had also recorded a random sample of the number of species just hanging out in the forest floor, not necessarily underneath logs, to run the experiment.
+
+```{r}
+t.test(ecology_lab_data$matrix_species, ecology_lab_data$log_species, alternative=c("less"))
+```
+
+And what do you know? The number of species underneath the log and the number of species on the forest floor _wasn't_ different. The p-value of 0.2901 was not significant, meaning the logs weren't acting as islands as we had originally assumed. So the reason why we didn't have a significant result is because we had a faulty assumption to begin with.
+
+## The Message of the Story
+
+So, really, the story isn't that exciting. We tried to apply the concepts of Island Biogeography Theory to these logs we found in the woods, but our assumptions were wrong. The coolest thing was that I was able to make these graphs in R all by myself (with some input from my _awesome_ ecology TA) and write about them in this really long lab report (11 pages!!!), but really, the coolest thing about this whole experience was definitely...
+
+# the salamanders.
+
+
+```{r, echo=FALSE, out.width='50%', fig.align='center', fig.cap="I mean, look at him! This cutie definitely belongs in [r/tinyanimalsonfingers.](https://www.reddit.com/r/tinyanimalsonfingers/)"}
+knitr::include_graphics("/img/salamander.jpg")
+```

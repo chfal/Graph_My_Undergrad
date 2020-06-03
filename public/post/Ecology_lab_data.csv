@@ -1,0 +1,30 @@
+"","ï..team","site","log_number","log_condition","canopy_cover","ground_cover","ground_condition","matrix_species","log_species","distance_nearest_log","log_area","under_log_area","nearest_log","comments","log_area_log","log_species_log","log_distance_nearest_log","under_log_area_log"
+"1","Rebecca Correia","A",1,"decomposed",50,15,"damp",10,11,3.95,2243.48,4769.54,"small","ants, spiders, other small anthropods nearby, centipedes, fungi, larvae",7.725783510734,2.40789527279837,1.37624402526639,8.48000514317343
+"2","Jeff Ratsamy","B",2,"rotting",10,5,"damp",5,2,0.68,549.05,759.63,"small","ant nest, beetles, cockroach, mushrooms, cicada, worm/larvae",6.31818951204372,0.703147180559945,-0.371063681390832,6.64283147262902
+"3","Marisa Mathison","B",3,"rotting",15,15,"damp",3,4,0.6,333.92,298.65,"medium","3 moss-covered rocks nearby",5.82090144332889,1.39629436111989,-0.49429632181478,5.70927231917831
+"4","Nike Asupoto","B",4,"fresh",75,5,"damp",4,1,2.6,796,NA,"medium","ants, spiders, small anthropods (using ratio from other logs, the under log area is an approximate measurement)",6.68959918584438,0.01,0.959350221334602,NA
+"5","","C",5,"fresh",80,5,"damp",2,2,0.7,1712.26,1127.49,"small","lots of fallen branches and moss covered rocks nearby",7.45556941432961,0.703147180559945,-0.342490308946776,7.0377492021579
+"6","","C",6,"decomposed",79,50,"damp",3,2,0.6,543.66,1065.27,"small","more spiders present,",6.30832405146202,0.703147180559945,-0.49429632181478,6.98098356713924
+"7","Team_Bears","team_bears_site1",1,"rotting",80,20,"damp",9,5,3,4503.19,10845.81,"small","",8.42254131350425,1.6194379124341,1.10194007876078,9.30153410926859
+"8","","",2,"decomposed",90,50,"damp",1,3,3,1368.87,1468.34,"large","",7.23174086095479,1.10861228866811,1.10194007876078,7.30188778998698
+"9","","",3,"rotting",65,30,"damp",4,3,4.5,709.43,612.31,"large","",6.57446183070388,1.10861228866811,1.50629715351459,6.42723869021401
+"10","","team_bears_site2",4,"rotting",90,70,"damp",4,3,4.8,1090.22,763.52,"small","",7.00413478971966,1.10861228866811,1.57069708411767,6.6479393194695
+"11","","",5,"rotting",85,5,"damp",3,4,4.8,1175.44,1317.4,"medium","",7.07939782456769,1.39629436111989,1.57069708411767,7.19341537620659
+"12","","",6,"fresh",90,15,"damp",4,3,5,1977.41,2459.91,"medium","moss covered, tree broke, took the roots out",7.59954318659599,1.10861228866811,1.61143591509677,7.81788004289129
+"13","","team_bears_site3",7,"decomposed",98,1,"dry",1,2,3.4,1084.64,1205.14,"medium","",6.99900341368266,0.703147180559945,1.22671229129543,7.1043510217487
+"14","","",8,"decomposed",95,15,"dry",2,1,3.4,568.55,856.79,"small","",6.35308926007073,0.01,1.22671229129543,6.76319284773023
+"15","DTM","DTM_site_1",1,"decomposed",80,70,"damp",3,4,3.09,1949.59,1459.84,"large","Portion of log was not visible in photo - likely caused undermeasured area",7.58537437304056,1.39629436111989,1.1314021114911,7.29608211965597
+"16","DTM","DTM_site_2",2,"rotting",50,10,"damp",6,5,1.5,1250.83,725.14,"large","",7.14156260994588,1.6194379124341,0.412109650826833,6.59636473966088
+"17","DTM","DTM_site_3",3,"decomposed",95,10,"damp",2,5,1.5,2992.7,1581.75,"medium","Portion of log was not visible in photo",8.0139312689499,1.6194379124341,0.412109650826833,7.37628710802699
+"18","DTM","DTM_site_4",4,"fresh",1,0,"damp",2,2,0.57,1336.42,1197.81,"medium","",7.20774967594979,0.703147180559945,-0.544727175441672,7.09825016843468
+"19","KSBM","KSBM_site 1",1,"rotting",90,50,"damp",5,6,2.99,1458.92,535.97,"large","downward slope; log is smaller and thin; fallen tree next to it, potential source",7.29545171494269,1.80175946922805,1.09861228866811,6.29407818935516
+"20","KSBM","KSBM_site 2",2,"fresh",90,5,"damp",6,8,3.96,1975.17,487.74,"medium","more species under and around, bigger source",7.59840974958027,2.08944154167984,1.3787660946991,6.19978247698654
+"21","KSBM","KSBM_site3",3,"rotting",95,2,"damp",2,4,2.72,1248.39,560.22,"medium","on top of other, bigger, logs",7.13961000011142,1.39629436111989,1.00430160919687,6.33832956372389
+"22","KSBM","KSBM_site4",4,"rotting",95,10,"damp",3,3,0,1898.76,1140.85,"large","was partially covered by log #3 and another, bigger, fallen tree",7.55895632051889,1.10861228866811,-4.60517018598809,7.04952887759158
+"23","KSBM","KSBM_site5",5,"decomposed",90,75,"damp",4,5,1.52,715.16,910.15,"medium","Log fell apart when we turned it and the underside of the log was very wet.",6.58250629388362,1.6194379124341,0.425267735404344,6.82360942109191
+"24","Treehuggers","Treehuggers_site1",1,"rotting",95,5,"dry",3,6,1,2022.52,1460.01,"large","N/A",7.6220995376353,1.80175946922805,0.00995033085316809,7.29619856399399
+"25","","",2,"decomposed",97,15,"dry",3,5,0.32,815.04,381.39,"large","can not move closest log, found salamander",6.71323719179109,1.6194379124341,-1.10866262452161,5.95382247363014
+"26","","",3,"decomposed",85,30,"damp",4,5,0.1,868.56,775.27,"large","lots of holes",6.7768366679236,1.6194379124341,-2.20727491318972,6.66321135577743
+"27","","",4,"decomposed",75,10,"dry",4,3,1,623.15,435.86,"medium","poison ivy near by, found salamander",6.44478726027239,1.10861228866811,0.00995033085316809,6.08732109086766
+"28","","",5,"rotting",90,50,"wet",2,2,1.35,2093.53,1601.74,"medium","white fungus, tree intack mearby",7.65660691542579,0.703147180559945,0.307484699747961,7.38884581732811
+"29","","",6,"decomposed",90,0,"dry",1,5,1.5,713.85,509.59,"small","found salamander",6.58067285623523,1.6194379124341,0.412109650826833,6.24360648083151

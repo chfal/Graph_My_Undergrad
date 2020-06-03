@@ -1,0 +1,48 @@
+---
+title: My Lizard Poster
+author: chfal
+date: '2019-05-20'
+slug: my-lizard-poster
+categories: []
+tags: []
+---
+
+
+After winning a small research grant with my university, I was asked to create a poster presentation about my work to show off at this year's showcase, so I'm going to talk a little bit about that in this post!
+
+# The Research Group
+
+I am the only undergraduate in the [Revell Lab](http://faculty.umb.edu/liam.revell/), a group of lovely people who study urban evolution _and_ write R packages used for phylogenetic analyses (see addendum)*. 
+
+My project is currently on the effects of urbanization on _Anolis_ lizards. You can see another blog post I wrote for my mentor's blog about it if you want to learn more about the process behind the poster, [here](https://urbanevolution-litc.com/2019/05/20/claws-in-the-city/). The general overview of the research is that urbanization affects animal body shape and we want to know how/if claw shape, an important body part for locomotion, is changing.
+
+# My Poster
+
+```{r, out.width="100%", echo=FALSE}
+knitr::include_graphics("/img/poster_slide1.png")
+knitr::include_graphics("/img/poster_slide2.png")
+```
+
+# My Graph
+
+Most specifically, I'm proud of the graph that I made for this research! The graph below shows surface roughness, or Ra, which is a measure of shadows in a surface photo and made using a plugin in ImageJ. The boxplot shows the difference in habitat textures between the forest and the city.
+
+The boxplot is faceted by "use" and "random," which refers to whether the surface was what the lizard was actually captured on or a random nearby perch. These photos are taken in the field to get a sampling of other options of surfaces that the lizards encounter in their respective habitats.
+
+```{r, out.width="100%", echo=FALSE}
+knitr::include_graphics("/img/perch_boxplot_use_random.jpeg")
+```
+
+The plot shows that forest habitats were rougher than urban habitats (with a p-value of 8.08E-13!!!! Wow!!!), which makes sense when you consider that forest habitats include bark, sticks, and branches, whilst urban habitats include metal, glass, and concrete. The plot also shows a slight trend towards lizards being found on rougher surfaces in both habitats, but without behavioral data to back it up, we can't make any wild claims about lizards choosing habitat.
+
+This graph was not that hard to make, as I've successfully made boxplots with fills and facets before, but I also ran all my stats (with help from the postdocs and my grad student) in R. So this was a fun R learning experience because I've never successfully run an ANOVA before! My ANOVA code is below:
+
+```{r, out.width="100%"}
+perch_data <- read.csv(file = "surface_roughness_spreadsheet.csv", na = "n/a")
+anova2 <- aov(RA~Perch_Type+Context,data=perch_data)
+summary(anova2)
+```
+
+# Addendum
+
+*Since this is mostly an R blog, if you're interested in learning about the packages written by the lab, my PI writes a package called [Phytools](https://cran.r-project.org/web/packages/phytools/index.html) and the postdoc writes a package called [Phangorn](https://phangorn.org/).

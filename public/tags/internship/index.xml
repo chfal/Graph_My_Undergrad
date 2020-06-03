@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>internship on Graph My Undergrad</title>
+    <link>/tags/internship/</link>
+    <description>Recent content in internship on Graph My Undergrad</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 18 Jun 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/internship/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>My Panamanian Research Adventure</title>
+      <link>/2019/06/18/panamanian-post-1/</link>
+      <pubDate>Tue, 18 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/06/18/panamanian-post-1/</guid>
+      <description>My Panamanian AdventureI write to you from the wonderful tropical country of Panama! This summer, I was accepted to an internship at the Smithsonian Tropical Research Institute in Gamboa, Panama, with the Angiletta Lab helping study thermal tolerance in Anolis due to climate change I’ll be in Panama until September 1st, 2019.
+Figure 1: The view from the Gamboa Rainforest Resort in Panama near the Smithsonian Tropical Research Institute.</description>
+    </item>
+    
+  </channel>
+</rss>

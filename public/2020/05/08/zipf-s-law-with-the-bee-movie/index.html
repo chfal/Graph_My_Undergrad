@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.72.0" />
+
+
+<title>Zipf&#39;s Law with the Bee Movie - Graph My Undergrad</title>
+<meta property="og:title" content="Zipf&#39;s Law with the Bee Movie - Graph My Undergrad">
+
+
+  <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/logo.jpg"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://github.com/chfal">GitHub</a></li>
+    
+    <li><a href="https://twitter.com/chfalvey">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">2 min read</span>
+    
+
+    <h1 class="article-title">Zipf&#39;s Law with the Bee Movie</h1>
+
+    
+    <span class="article-date">2020-05-08</span>
+    
+
+    <div class="article-content">
+      <h1 id="the-bee-movie">The Bee Movie</h1>
+<p><a href="https://www.rottentomatoes.com/m/bee_movie">The Bee Movie</a> is possibly one of the most infamous and widely-memed movies. Hell, a human woman falls in love with a weirdly sexualized bee played by Jerry Seinfield, and many laws of physics are broken - what could be better?</p>
+<p>After seeing <a href="https://www.tiktok.com/@ryanharrison16/video/6820314252272766214?u_code=d978l6hcbld044&amp;preview_pb=0&amp;language=en&amp;_d=d978l4j4l59ag8&amp;timestamp=1588992709&amp;utm_campaign=client_share&amp;app=musically&amp;utm_medium=ios&amp;user_id=6756743759264465926&amp;tt_from=sms&amp;utm_source=sms&amp;source=h5_m">this TikTok</a> where a person creates a script in Python to write the Bee Movie script by text, I decided to do some sentiment analysis with the Bee Movie script (which I downloaded <a href="https://web.njit.edu/~cm395/theBeeMovieScript/">here</a>)</p>
+<h1 id="word-frequency">Word Frequency</h1>
+<p>I made this cute little graph that shows the word frequency.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">tokenized_bee_movie <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">count</span>(word, sort<span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">top_n</span>(<span style="color:#ae81ff">10</span>) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">mutate</span>(word <span style="color:#f92672">=</span> <span style="color:#a6e22e">reorder</span>(word,n)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">ggplot</span>(<span style="color:#a6e22e">aes</span>(word,n, fill<span style="color:#f92672">=</span>word)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_col</span>() <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">xlab</span>(<span style="color:#66d9ef">NULL</span>) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">coord_flip</span>() <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">labs</span>(title<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;The Most Common Words in the Bee Movie&#34;</span>) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">scale_fill_manual</span>(values<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;goldenrod1&#34;</span>,<span style="color:#e6db74">&#34;black&#34;</span>,<span style="color:#e6db74">&#34;goldenrod1&#34;</span>,<span style="color:#e6db74">&#34;black&#34;</span>,<span style="color:#e6db74">&#34;goldenrod1&#34;</span>,<span style="color:#e6db74">&#34;black&#34;</span>,<span style="color:#e6db74">&#34;goldenrod1&#34;</span>,<span style="color:#e6db74">&#34;black&#34;</span>,<span style="color:#e6db74">&#34;goldenrod1&#34;</span>,<span style="color:#e6db74">&#34;black&#34;</span>)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">theme_bw</span>() <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">theme</span>(legend.position<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;none&#34;</span>)
+</code></pre></div><pre><code>## Selecting by n
+</code></pre><p><!-- raw HTML omitted --></p>
+<h1 id="zipfs-law">Zipf&rsquo;s Law</h1>
+<p>The new addition to this script that makes it different from the many, many, <em>many</em> word frequency graphs I&rsquo;ve made on this blog before (apparently amateur text-mining is my thing) is that today I used Zipf&rsquo;s Law.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">zipfs_bee_movie <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">ggplot</span>(<span style="color:#a6e22e">aes</span>(rank,term_frequency)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_line</span>(col<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;goldenrod&#34;</span>, lwd<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">scale_x_log10</span>() <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">scale_y_log10</span>() <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">theme_bw</span>() <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">labs</span>(title<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Zipf&#39;s Law for the Bee Movie&#34;</span>)
+</code></pre></div><p><!-- raw HTML omitted --></p>
+<p>Zipf&rsquo;s Law states that the frequency of any word is inversely proportional to its rank in the frequency table of the words. We can test whether Zipf&rsquo;s Law holds true by calculating a score that relates the rank to the row number. I used this formula: (row \ number / term \ frequency) to create a score for each and graphed it on a log-log axes as done <a href="https://www.tidytextmining.com/tfidf.html#zipfs-law">here</a>.</p>
+<p>The resulting graph is supposed to be a fairly straight line, which seems to suggest that the Bee Movie script generally follows Zipf&rsquo;s Law. That being said, there seem to be lots of words which are used only once because they seem to have low rank and aren&rsquo;t very frequent. That being said, I may have misinterpreted this graph incorrectly because I have never worked with Zipf&rsquo;s Law before.</p>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+  </body>
+</html>
+

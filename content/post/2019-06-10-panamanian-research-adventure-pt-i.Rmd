@@ -1,0 +1,33 @@
+---
+title: My Panamanian Research Adventure
+author: chfal
+date: '2019-06-18'
+slug: panamanian-post-1
+categories: []
+tags:
+  - research
+  - internship
+  - not r
+---
+
+# My Panamanian Adventure
+
+I write to you from the wonderful tropical country of Panama! This summer, I was accepted to an internship at the [Smithsonian Tropical Research Institute](https://stri.si.edu/) in Gamboa, Panama, with the [Angiletta Lab](https://sols.asu.edu/michael-angilletta) helping study thermal tolerance in _Anolis_ due to climate change I'll be in Panama until September 1st, 2019.
+
+```{r, out.width="100%", echo=FALSE, fig.cap="The view from the Gamboa Rainforest Resort in Panama near the Smithsonian Tropical Research Institute."}
+knitr::include_graphics("/img/panorama.jpg")
+```
+
+# The Research
+
+There are many parts of the project, but some of the best parts include going out in a tiny motorboat to the islands of the Panama Canal These islands all have different thermal profiles and serve as new habitats for transplanted [_Anolis apletophallus_](http://reptile-database.reptarium.cz/species?genus=Anolis&species=apletophallus), to see how these lizards fare under different temperatures. Other projects include raising these lizards in climate chambers and measuring anoles' dewlap color to see if certain colors are under selection depending on the microhabitat.
+
+As an undergraduate intern, I'm lucky to be able to participate in multiple projects this summer and get to learn as many lab and field skills as possible. This includes Python! Python is a language I've wanted to learn since I started learning about R last year. It is a useful language for modeling, statistics, and can even be integrated with R. So even though the posts on this blog may be less about R, they will return even stronger once I know Python!
+
+# Herpetology
+
+Here are some pictures I have found of interesting animals in the field so far. I have also been posting to my [iNaturalist account](https://www.inaturalist.org/observations/chfal) for more pictures of cool animals and plants.
+
+```{r, out.width="60%", fig.align='center', echo=FALSE, fig.cap="From left to right, _Corytophanes cristatus_, an agouti, _Gonatodes albigularis_, and an unidentified colubrid snake which may possibly be _Mastigodryas alternatus_."}
+knitr::include_graphics("/img/herpetology_collage.jpg")
+```

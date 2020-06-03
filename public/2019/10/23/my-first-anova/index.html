@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.72.0" />
+
+
+<title>My First ANOVA!! - Graph My Undergrad</title>
+<meta property="og:title" content="My First ANOVA!! - Graph My Undergrad">
+
+
+  <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/logo.jpg"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://github.com/chfal">GitHub</a></li>
+    
+    <li><a href="https://twitter.com/chfalvey">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">5 min read</span>
+    
+
+    <h1 class="article-title">My First ANOVA!!</h1>
+
+    
+    <span class="article-date">2019-10-23</span>
+    
+
+    <div class="article-content">
+      <h1 id="anovas-are-kinda-cool">ANOVAs are kinda cool!</h1>
+<p>Today in ecology lab, I learned how to run an Analysis of Variance (ANOVA)! The specific type of ANOVA I learned how to use is the <a href="http://www.sthda.com/english/wiki/kruskal-wallis-test-in-r">Kruskal-Wallis test</a>. It is nonparametric and doesn&rsquo;t depend on a normal distribution, so we used it. I later learned it is used to compare medians. <a href="http://www.biostathandbook.com/kruskalwallis.html">The Kruskal-Wallis test is ranked</a>, which means that for each factor, a numerical integer is assigned based on how high or low it is relative to the others in the data set, and then you calculate the sum of ranks for each group to get an H-statistic, which is pretty similar to a chi-square value.</p>
+<h1 id="the-experiment">The Experiment</h1>
+<p>To run our ANOVA we had data about plants: Last week, we had gone out in the field and collected goldenrod plants. The goldenrod plant is a very unassuming plant. We collected them from places around UMass and we tried to note what environmental factors they were exposed to.</p>
+<p>Usually the Teaching Assistant helps us aggregate the data but she wasn&rsquo;t there because she was trying to get a fellowship :) ! So, that meant that I had to aggregate the data. It was stressful being that responsible, but it also wasn&rsquo;t too bad - just a lot of copying and pasting. We also had drop-down menus for factors so people didn&rsquo;t just write their own, which is what happened last time. (The problem was solved by a nightmare script that&rsquo;s 100 lines long and exports several .CSV files because I couldn&rsquo;t figure out how to use <em>full_join()</em> in dplyr. Whoops!). The good thing about being responsible for aggregating the data was that I got to name the variables what I liked and use snake instead of having to rewrite the headings later. Haha!</p>
+<p>Anyway, here&rsquo;s the data for what we worked on in the lab.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">head</span>(plants)
+</code></pre></div><pre><code>## # A tibble: 6 x 14
+##   group_number plant_number total_plant_hei~ height_lowest_l~
+##   &lt;chr&gt;               &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;
+## 1 Yellow Team             1              79               0  
+## 2 Yellow Team             2              87               6  
+## 3 Yellow Team             3             140              10  
+## 4 Yellow Team             4             123              16.5
+## 5 Yellow Team             5             115              14  
+## 6 Yellow Team             6             124.             12  
+## # ... with 10 more variables: height_lowest_flower &lt;dbl&gt;,
+## #   number_leaves &lt;dbl&gt;, weight_leaves &lt;dbl&gt;, weight_flowers &lt;dbl&gt;,
+## #   weight_stem &lt;dbl&gt;, habitat &lt;chr&gt;, average_plant_stand_height &lt;dbl&gt;,
+## #   exposure &lt;chr&gt;, moisture_level &lt;chr&gt;, habitat_type &lt;chr&gt;
+</code></pre><p>When working in groups we had to test whether the habitat might have impacted some element of the plant&rsquo;s physiology from our collected variables. To do this, our group specifically wanted to test the effect of habitat on how the plant allocates its energy. For example, we decided to compare plants that were living in a saline environment near the shoreline versus plants that were living in a grassy environment. We wanted to see if this effected their stem length, leaf count, and other things.</p>
+<h1 id="cleaning-the-data">Cleaning the Data</h1>
+<p>To clean the data, I selected only the groups that had collected from saline and grassland environments. This broke down nicely by team name so that&rsquo;s what I used. However, this could&rsquo;ve been a source of error becacuse of measurement error being different between the two groups - splitting up half and half groups collecting from both shoreline and grassy environments might have reduced this, but would&rsquo;ve been much more complicated logistically.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">plants2 <span style="color:#f92672">&lt;-</span> plants <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">mutate</span>(ratio_stem <span style="color:#f92672">=</span> number_leaves<span style="color:#f92672">/</span>total_plant_height) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">filter</span>(group_number <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;Treehuggers&#34;</span> <span style="color:#f92672">|</span> group_number <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;Dennis&#34;</span>)
+</code></pre></div><h1 id="anovas-and-graphs">ANOVAs and Graphs</h1>
+<p>Here are the results! For the first hypothesis we wanted to test whether the plant height differed by what habitat it was collected from. You can see these box plots are super different from each other, so it&rsquo;s no surprise that the H-statistic was so high and the p-value so small and significant.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggplot</span>(plants2, <span style="color:#a6e22e">aes</span>(habitat_type, total_plant_height, fill<span style="color:#f92672">=</span>habitat_type)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">scale_fill_manual</span>(values<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;lightgreen&#34;</span>, <span style="color:#e6db74">&#34;skyblue&#34;</span>)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_boxplot</span>() <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">labs</span>(x<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Habitat Type&#34;</span>, y<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Total Plant Height&#34;</span>, title <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Boxplot of Plant Height by Habitat Type&#34;</span>)
+</code></pre></div><p><!-- raw HTML omitted --></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">kruskal.test</span>(total_plant_height <span style="color:#f92672">~</span> habitat_type, plants2) <span style="color:#75715e"># p value 3.674 e-5</span>
+</code></pre></div><pre><code>## 
+## 	Kruskal-Wallis rank sum test
+## 
+## data:  total_plant_height by habitat_type
+## Kruskal-Wallis chi-squared = 17.033, df = 1, p-value = 3.674e-05
+</code></pre><p>For the second hypothesis we wanted to test whether the number of leaves differed by what habitat it was collected from. Again, these box plots are super different from each other, so again we see a high H-statistic and small p-value.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggplot</span>(plants2, <span style="color:#a6e22e">aes</span>(habitat_type, number_leaves, fill<span style="color:#f92672">=</span> habitat_type)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">scale_fill_manual</span>(values<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;lightgreen&#34;</span>,<span style="color:#e6db74">&#34;skyblue&#34;</span>)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_boxplot</span>() <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">labs</span>(x<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Habitat Type&#34;</span>, y<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Number of Leaves&#34;</span>, title <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Boxplot of Number of Leaves by Habitat Type&#34;</span>)
+</code></pre></div><p><!-- raw HTML omitted --></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">kruskal.test</span>(number_leaves <span style="color:#f92672">~</span> habitat_type, plants2) <span style="color:#75715e"># p value .02</span>
+</code></pre></div><pre><code>## 
+## 	Kruskal-Wallis rank sum test
+## 
+## data:  number_leaves by habitat_type
+## Kruskal-Wallis chi-squared = 5.2994, df = 1, p-value = 0.02133
+</code></pre><p>Lastly, we wanted to test whether the ratio of the stem to leaves by habitat were significantly different. I had gotten the stem and leaf ratio by using the <em>mutate()</em> function in dplyr and it&rsquo;s included in the data cleaning above. We didn&rsquo;t find that this statistically significant, which makes sense because not only are the medians pretty similar.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggplot</span>(plants2, <span style="color:#a6e22e">aes</span>(habitat_type, ratio_stem, fill<span style="color:#f92672">=</span>habitat_type)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">scale_fill_manual</span>(values<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;lightgreen&#34;</span>,<span style="color:#e6db74">&#34;skyblue&#34;</span>)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_boxplot</span>() <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">labs</span>(x<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Habitat Type&#34;</span>, y<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Ratio of Number of Leaves to Stem Height&#34;</span>, title <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Boxplot of Ratio of Number of Leaves to Stem Height by Habitat Type&#34;</span>)
+</code></pre></div><p><!-- raw HTML omitted --></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">kruskal.test</span>(ratio_stem <span style="color:#f92672">~</span> habitat_type, plants2) <span style="color:#75715e"># p value .7244</span>
+</code></pre></div><pre><code>## 
+## 	Kruskal-Wallis rank sum test
+## 
+## data:  ratio_stem by habitat_type
+## Kruskal-Wallis chi-squared = 0.1243, df = 1, p-value = 0.7244
+</code></pre><h1 id="the-end">The End</h1>
+<p>Learning how to do one kind of ANOVA in R was really fun and the Kruskal-Wallis test was pretty easy to understand and interpret. I&rsquo;m glad we didn&rsquo;t have to do the math by hand. A lot of people weirdly seemed to leave the lab without analyzing the data first, and don&rsquo;t seem to be familiar with R so they might have to run it online or, God forbid, calculate thirty variances by hand for whatever hypothesis they&rsquo;re testing. I prefer analyzing the data in the lab time so I can ask for help. My group actually worked super productively and we finished our entire team presentation before we left (which is awesome, so we don&rsquo;t have to do it at home now.) Either way - a fun way to spend a Wednesday playing with R!</p>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+
+    
+  </body>
+</html>
+

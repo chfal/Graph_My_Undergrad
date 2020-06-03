@@ -1,14 +1,96 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Graph My Undergrad</title>
-    <link>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/tags/</link>
+    <link>/tags/</link>
     <description>Recent content in Tags on Graph My Undergrad</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Wed, 03 Jun 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>lubridate</title>
+      <link>/tags/lubridate/</link>
+      <pubDate>Wed, 03 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/lubridate/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R</title>
+      <link>/tags/r/</link>
+      <pubDate>Wed, 03 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>statistics</title>
+      <link>/tags/statistics/</link>
+      <pubDate>Wed, 03 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/statistics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tidvyerse</title>
+      <link>/tags/tidvyerse/</link>
+      <pubDate>Wed, 03 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/tidvyerse/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>research</title>
+      <link>/tags/research/</link>
+      <pubDate>Fri, 29 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/research/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rstudio</title>
+      <link>/tags/rstudio/</link>
+      <pubDate>Tue, 29 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/rstudio/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>internship</title>
+      <link>/tags/internship/</link>
+      <pubDate>Tue, 18 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/internship/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>not r</title>
+      <link>/tags/not-r/</link>
+      <pubDate>Tue, 18 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/not-r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>outreach</title>
+      <link>/tags/outreach/</link>
+      <pubDate>Wed, 08 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/outreach/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

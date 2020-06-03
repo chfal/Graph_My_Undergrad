@@ -1,4 +1,5 @@
 baseurl = "/"
+relativeurls= false 
 languageCode = "en-us"
 title = "Graph My Undergrad"
 theme = "hugo-lithium"

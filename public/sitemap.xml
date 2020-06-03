@@ -1,92 +1,204 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/</loc>
-    <lastmod>2019-04-30T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+    <loc>/2020/06/03/commute-analysis/</loc>
+    <lastmod>2020-06-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/post/</loc>
-    <lastmod>2019-04-30T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+    <loc>/</loc>
+    <lastmod>2020-06-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/04/30/welcome-to-the-new-site/</loc>
+    <loc>/tags/lubridate/</loc>
+    <lastmod>2020-06-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2020-06-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/r/</loc>
+    <lastmod>2020-06-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/statistics/</loc>
+    <lastmod>2020-06-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-06-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/tidvyerse/</loc>
+    <lastmod>2020-06-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2020/05/08/zipf-s-law-with-the-bee-movie/</loc>
+    <lastmod>2020-05-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2020/01/28/word-clouds-an-adventure-in-text-mining-again/</loc>
+    <lastmod>2020-01-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2019/11/29/interspecific-competition-graphs/</loc>
+    <lastmod>2019-11-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/research/</loc>
+    <lastmod>2019-11-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2019/10/29/lightning-talks-with-the-tidyverse-team/</loc>
+    <lastmod>2019-10-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/rstudio/</loc>
+    <lastmod>2019-10-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2019/10/23/my-first-anova/</loc>
+    <lastmod>2019-10-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2019/10/08/island-biogeography-theory-graphs/</loc>
+    <lastmod>2019-10-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2019/09/11/some-updates/</loc>
+    <lastmod>2019-09-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2019/06/27/tracking-my-nightmarish-commute/</loc>
+    <lastmod>2019-06-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/internship/</loc>
+    <lastmod>2019-06-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2019/06/18/panamanian-post-1/</loc>
+    <lastmod>2019-06-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/not-r/</loc>
+    <lastmod>2019-06-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2019/05/27/opinions-on-books/</loc>
+    <lastmod>2019-05-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2019/05/20/my-lizard-poster/</loc>
+    <lastmod>2019-05-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2019/05/11/graphs-that-move-fun-with-gganimate/</loc>
+    <lastmod>2019-05-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/outreach/</loc>
+    <lastmod>2019-05-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2019/05/08/r-outreach/</loc>
+    <lastmod>2019-05-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2019/04/30/welcome-to-the-new-site/</loc>
     <lastmod>2019-04-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/04/16/r-ladies-meetup-2/</loc>
+    <loc>/2019/04/16/r-ladies-meetup-2/</loc>
     <lastmod>2019-04-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/04/15/research-progress-update-more-than-halfway-there/</loc>
+    <loc>/2019/04/15/research-progress-update-more-than-halfway-there/</loc>
     <lastmod>2019-04-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/04/03/jukebox-the-ghost-an-adventure-in-text-mining-pt-ii/</loc>
+    <loc>/2019/04/03/jukebox-the-ghost-an-adventure-in-text-mining-pt-ii/</loc>
     <lastmod>2019-04-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/03/29/jukebox-the-ghost-an-adventure-in-text-mining-pt-i/</loc>
+    <loc>/2019/03/29/jukebox-the-ghost-an-adventure-in-text-mining-pt-i/</loc>
     <lastmod>2019-03-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/03/22/my-first-r-meetup/</loc>
+    <loc>/2019/03/22/my-first-r-meetup/</loc>
     <lastmod>2019-03-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/03/20/did-retaking-the-physics-exam-improve-scores/</loc>
+    <loc>/2019/03/20/did-retaking-the-physics-exam-improve-scores/</loc>
     <lastmod>2019-03-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/03/14/a-statistical-breakdown-of-the-online-dating-experience/</loc>
+    <loc>/2019/03/14/a-statistical-breakdown-of-the-online-dating-experience/</loc>
     <lastmod>2019-03-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/02/25/inaturalist-graphs/</loc>
+    <loc>/2019/02/25/inaturalist-graphs/</loc>
     <lastmod>2019-02-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/02/19/the-graph-that-may-have-started-it-all/</loc>
+    <loc>/2019/02/19/the-graph-that-may-have-started-it-all/</loc>
     <lastmod>2019-02-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/02/14/all-in-a-week-s-work/</loc>
+    <loc>/2019/02/14/all-in-a-week-s-work/</loc>
     <lastmod>2019-02-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/02/12/test-post/</loc>
+    <loc>/2019/02/12/test-post/</loc>
     <lastmod>2019-02-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/about/</loc>
+    <loc>/about/</loc>
     <lastmod>2016-05-05T21:48:51-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/categories/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/tags/</loc>
-    <priority>0</priority>
+    <loc>/categories/</loc>
   </url>
   
 </urlset>

@@ -1,0 +1,66 @@
+---
+title: Island Biogeography Theory Graphs
+author: chfal
+date: '2019-10-08'
+slug: island-biogeography-theory-graphs
+categories: []
+tags: []
+---
+
+
+
+<div id="i-made-these-cool-graphs-in-ecology-lab-and-now-i-want-to-share-them" class="section level3">
+<h3>I made these cool graphs in ecology lab and now I want to share them!</h3>
+<p>These graphs are about <a href="https://www.youtube.com/watch?v=5PyrRtSytmM">Island Biogeography Theory</a>, which was developed by ecologists E.O. Wilson and R. H. MacArthur in the 1960s. (E.O Wilson works at Harvard, and I got to meet him a few years ago!)</p>
+<p>Island Biogeography Theory is pretty intuitive, but if you’re not an ecologist, I’ll give you the down-low: Basically, as an island gets bigger, it can support more species because it has more resources. Also, if an island is closer to the mainland, it has a higher diversity of species because it’s easier for animals come over to that island from the mainland. These variables are all related to each other on the log scale (haha, get it? The <em>log</em> scale). But yeah. The logarithmic scale.</p>
+</div>
+<div id="collecting-the-data-ecology-lab-is-fun" class="section level1">
+<h1>Collecting the Data: Ecology Lab is Fun!</h1>
+<p>In my ecology lab class, we were testing whether logs at the <a href="">Ponkapoag Bog Trail</a> were behaving as islands for species, in that they were harbouring species because they can be a specialized habitat. To do this, we went outside (yay!) and flipped over a bunch of logs to see what was underneath them. We also counted the number of species. Including <a href="https://www.massaudubon.org/learn/nature-wildlife/reptiles-amphibians/salamanders/salamander-species-in-massachusetts">this cool salamander</a> (<em>Plethodon cinerea</em>, if you want to learn more about it.)</p>
+<p><img src="/img/salamander2.jpg" width="50%" style="display: block; margin: auto;" /></p>
+<p>While it was fun to go outside and dig around in the dirt for a few hours where I’d normally be in school, what wasn’t fun were these <em>mutates()</em>. I had to do these mutates on the dataset because it’s important that all the variables be on the logarithmic scale, but we had to add .01 to all of the data points because the log of zero is undefined, but .01 is negligible, and that allows logarithms to be taken for all the data points.</p>
+<pre class="r"><code>ecology_lab_data &lt;- ecology_lab_data %&gt;%
+  mutate(log_area_log = log(log_area) + .01) %&gt;%
+  mutate(log_species_log = log(log_species) + .01) %&gt;%
+  mutate(log_distance_nearest_log = log(distance_nearest_log + .01)) %&gt;%
+  mutate(under_log_area_log = log(under_log_area) + .01)</code></pre>
+</div>
+<div id="the-graphs" class="section level1">
+<h1>The Graphs</h1>
+<p>The graphs are here! These graphs relate the area of the log to the number of species found underneath it. We would expect that this should be positive if the logs are behaving as islands because they’re harbouring species. We also expect that logs that are close to each other have a higher number of species because the species can travel back and forth.</p>
+<pre><code>## Warning: Removed 1 rows containing non-finite values (stat_smooth).</code></pre>
+<pre><code>## Warning: Removed 1 rows containing missing values (geom_point).</code></pre>
+<p><img src="/post/2019-10-08-island-biogeography-theory-graphs_files/figure-html/unnamed-chunk-4-1.png" width="672" /><img src="/post/2019-10-08-island-biogeography-theory-graphs_files/figure-html/unnamed-chunk-4-2.png" width="672" /></p>
+<div id="faulty-assumptions-nonsignificant-result" class="section level2">
+<h2>Faulty Assumptions = Nonsignificant Result!</h2>
+<p>Without getting too technical, as you can see, the variables are all positively correlated with each other, but not significantly, as they should have been. Not one of the theories of island biogeography was significantly supported. So that begs the question - <em>are</em> logs actually behaving as islands? In order to collect the data, we had to assume that the logs <em>were</em> behaving as islands in order for the hypotheses to hold, but they might not have.</p>
+<p>I was wondering why the logs weren’t behaving according to Island Biogeography Theory. I thought that it might have been due to our experimental error (there was a lot of it because at one point we were <em>definitely</em> supposed to be counting species but I was <em>definitely</em> distracted and playing with salamanders.)</p>
+<p>Then I decided to run a two-sample t-test. We recorded the number of species actually <em>under</em> the log, but we had also recorded a random sample of the number of species just hanging out in the forest floor, not necessarily underneath logs, to run the experiment.</p>
+<pre class="r"><code>t.test(ecology_lab_data$matrix_species, ecology_lab_data$log_species, alternative=c(&quot;less&quot;))</code></pre>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  ecology_lab_data$matrix_species and ecology_lab_data$log_species
+## t = -0.55633, df = 55.992, p-value = 0.2901
+## alternative hypothesis: true difference in means is less than 0
+## 95 percent confidence interval:
+##       -Inf 0.6226703
+## sample estimates:
+## mean of x mean of y 
+##  3.620690  3.931034</code></pre>
+<p>And what do you know? The number of species underneath the log and the number of species on the forest floor <em>wasn’t</em> different. The p-value of 0.2901 was not significant, meaning the logs weren’t acting as islands as we had originally assumed. So the reason why we didn’t have a significant result is because we had a faulty assumption to begin with.</p>
+</div>
+<div id="the-message-of-the-story" class="section level2">
+<h2>The Message of the Story</h2>
+<p>So, really, the story isn’t that exciting. We tried to apply the concepts of Island Biogeography Theory to these logs we found in the woods, but our assumptions were wrong. The coolest thing was that I was able to make these graphs in R all by myself (with some input from my <em>awesome</em> ecology TA) and write about them in this really long lab report (11 pages!!!), but really, the coolest thing about this whole experience was definitely…</p>
+</div>
+</div>
+<div id="the-salamanders." class="section level1">
+<h1>the salamanders.</h1>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-6"></span>
+<img src="/img/salamander.jpg" alt="I mean, look at him! This cutie definitely belongs in [r/tinyanimalsonfingers.](https://www.reddit.com/r/tinyanimalsonfingers/)" width="50%" />
+<p class="caption">
+Figure 1: I mean, look at him! This cutie definitely belongs in <a href="https://www.reddit.com/r/tinyanimalsonfingers/">r/tinyanimalsonfingers.</a>
+</p>
+</div>
+</div>

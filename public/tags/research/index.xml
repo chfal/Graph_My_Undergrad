@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>research on Graph My Undergrad</title>
+    <link>/tags/research/</link>
+    <description>Recent content in research on Graph My Undergrad</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 29 Nov 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/research/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Interspecific Competition Graphs (A.K.A The Worst Graphs I&#39;ve Made, Ever)</title>
+      <link>/2019/11/29/interspecific-competition-graphs/</link>
+      <pubDate>Fri, 29 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/11/29/interspecific-competition-graphs/</guid>
+      <description>The Setup In this blog post, I am going to complain about how difficult it was to recreate this graph that we were supposed to make for Ecology Lab.
+The point of this graph is to show the effect of interspecific competiton on plant biomass (size). The best way interspecific competition can be summed up simply is to say that plants that grow alone (not competing with another species) have more biomass than plants that grow with another species (because they have to compete).</description>
+    </item>
+    
+    <item>
+      <title>My Panamanian Research Adventure</title>
+      <link>/2019/06/18/panamanian-post-1/</link>
+      <pubDate>Tue, 18 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/06/18/panamanian-post-1/</guid>
+      <description>My Panamanian AdventureI write to you from the wonderful tropical country of Panama! This summer, I was accepted to an internship at the Smithsonian Tropical Research Institute in Gamboa, Panama, with the Angiletta Lab helping study thermal tolerance in Anolis due to climate change I’ll be in Panama until September 1st, 2019.
+Figure 1: The view from the Gamboa Rainforest Resort in Panama near the Smithsonian Tropical Research Institute.</description>
+    </item>
+    
+  </channel>
+</rss>

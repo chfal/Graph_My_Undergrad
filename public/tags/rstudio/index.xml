@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rstudio on Graph My Undergrad</title>
+    <link>/tags/rstudio/</link>
+    <description>Recent content in Rstudio on Graph My Undergrad</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 29 Oct 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/rstudio/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Lightning Talks with the Tidyverse Team</title>
+      <link>/2019/10/29/lightning-talks-with-the-tidyverse-team/</link>
+      <pubDate>Tue, 29 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/10/29/lightning-talks-with-the-tidyverse-team/</guid>
+      <description>After some magic where I was suddenly moved up 6 spots on a wait list of 25 people, I was recently able to attend the Lightning Talks by the Tidyverse Team, hosted by R Ladies Boston and the Greater Boston UseR meetup groups! I&amp;rsquo;ve been going to R meetups since last Spring, but I really enjoy meeting new people and I was inordinately excited at the potential of meeting everyone&amp;rsquo;s favourite RStudio scientist, Hadley Wickham.</description>
+    </item>
+    
+    <item>
+      <title>Outreach, WiSTEM, and R</title>
+      <link>/2019/05/08/r-outreach/</link>
+      <pubDate>Wed, 08 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/05/08/r-outreach/</guid>
+      <description>In this post, I’m going to talk a little bit less about graphs and data, and more about outreach.
+As a minority in STEM, I’m really interested in outreach, science commmunication, and the increase of diversity in my field. So when the STEM Ambassadors Program at UMass offered the opportunity to create an activity centered around my research interests to “pitch” my science to a group of middle schoolers, I jumped at the chance.</description>
+    </item>
+    
+  </channel>
+</rss>

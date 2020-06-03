@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.72.0" />
+
+
+<title>I Have Opinions on Books (Exploring my Goodreads Data) - Graph My Undergrad</title>
+<meta property="og:title" content="I Have Opinions on Books (Exploring my Goodreads Data) - Graph My Undergrad">
+
+
+  <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/logo.jpg"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://github.com/chfal">GitHub</a></li>
+    
+    <li><a href="https://twitter.com/chfalvey">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">4 min read</span>
+    
+
+    <h1 class="article-title">I Have Opinions on Books (Exploring my Goodreads Data)</h1>
+
+    
+    <span class="article-date">2019-05-27</span>
+    
+
+    <div class="article-content">
+      <p>I&rsquo;ve always been a huge reader, so when I discovered Goodreads in 2013 in middle school, I&rsquo;ve pretty much logged every single book I&rsquo;ve read since on the website.</p>
+<p>I had always wanted to explore my Goodreads data, because it&rsquo;s a big data set (I&rsquo;ve put over 500 books on the site), but hadn&rsquo;t gotten around to it yet as I wasn&rsquo;t sure how to best structure and collect my data set from my Goodreads account. That being said, after finals (bye-bye sophomore year!), I was tooling around and found a way to export my data directly to a CSV, perfect for playing with it in R!</p>
+<p>Here are a few fun graphs about my Goodreads history.</p>
+<h1 id="the-graphs">The Graphs</h1>
+<p>To start playing with the data, I wanted to explore whether my opinions on books aligned with the public&rsquo;s general opinions. On Goodreads, you can rate the book from 1-5 after you have finished it, with 1 being a low rating and 5 being a high rating. I wanted to compare my ratings to the average value (others&rsquo; ratings) of books.</p>
+<p>First, I wanted to correlate the two variables. Using R, the correlation coefficient was calculatedd to be .2576, which was lower than I expected. This low value means the two variables are not strongly linked in a linear relationship.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">with</span>(gr_tbl, <span style="color:#a6e22e">cor</span>(My_Rating, Average_Rating))
+</code></pre></div><pre><code>## [1] 0.2575739
+</code></pre><p>I graphed the ratings of all the books I&rsquo;ve rated on Goodreads below. This histogram has more of a discrete scale, because readers can only rate books as integer values from 1-5.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">mean</span>(gr_tbl<span style="color:#f92672">$</span>My_Rating)
+</code></pre></div><pre><code>## [1] 3.729412
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggplot</span>(gr_tbl, <span style="color:#a6e22e">aes</span>(My_Rating)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_histogram</span>(bins<span style="color:#f92672">=</span><span style="color:#ae81ff">15</span>, col<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;black&#34;</span>, fill<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;pink&#34;</span>) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">labs</span>(x<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;My Average Rating&#34;</span>, y<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Number of Books&#34;</span>, title<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;A Histogram of My Ratings of Books I&#39;ve Read on Goodreads&#34;</span>)
+</code></pre></div><p><!-- raw HTML omitted --></p>
+<p>Then I graphed the distribution of the average rating of all the books I&rsquo;ve read on Goodreads. This histogram has more of a continuous x-scale because it&rsquo;s the average of all of its readers&rsquo; ratings and thus isn&rsquo;t constrained to being 1-5.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">mean</span>(gr_tbl<span style="color:#f92672">$</span>Average_Rating)
+</code></pre></div><pre><code>## [1] 4.009784
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggplot</span>(gr_tbl, <span style="color:#a6e22e">aes</span>(Average_Rating)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_histogram</span>(bins<span style="color:#f92672">=</span><span style="color:#ae81ff">15</span>, col<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;black&#34;</span>, fill<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;skyblue&#34;</span>) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">labs</span>(x<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Average Rating&#34;</span>, y<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Number of Books&#34;</span>, title<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;A Histogram of Average Ratings of Books I&#39;ve Read on Goodreads&#34;</span>)
+</code></pre></div><p><!-- raw HTML omitted --></p>
+<p>After that, I wanted to see what the 10 worst-rated books were that I had read, and what I had thought of them. This graph shows a comparison of the average rating (blue, following the color scheme above) versus my own rating (pink). This graph was challenging to make because I had to use the dplyr verb <em>gather()</em>, which I find very confusing, but some Googling/Stack Overflow helped me out.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">worst_books <span style="color:#f92672">&lt;-</span> gr_tbl <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">arrange</span>(gr_tbl<span style="color:#f92672">$</span>Average_Rating)<span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">subset</span>(Average_Rating<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">3.44</span>)<span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">select</span>(Title, My_Rating, Average_Rating) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">gather</span>(Rating_Type, Rating, Average_Rating<span style="color:#f92672">:</span>My_Rating)
+
+<span style="color:#a6e22e">ggplot</span>(worst_books, <span style="color:#a6e22e">aes</span>(Title, Rating, fill<span style="color:#f92672">=</span>Rating_Type)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_col</span>(position<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;dodge&#34;</span>) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">scale_x_discrete</span>(labels<span style="color:#f92672">=</span><span style="color:#a6e22e">wrap_format</span>(<span style="color:#ae81ff">5</span>)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">labs</span>(title<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;The 10 Lowest Rated Books I&#39;ve Read on Goodreads&#34;</span>, subtitle <span style="color:#f92672">=</span><span style="color:#e6db74">&#34;My Rating vs. the Average Reader&#39;s Rating&#34;</span>) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">scale_fill_manual</span>(values<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;skyblue&#34;</span>,<span style="color:#e6db74">&#34;pink&#34;</span>))
+</code></pre></div><p><!-- raw HTML omitted --></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">best_books <span style="color:#f92672">&lt;-</span> gr_tbl <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">arrange</span>(<span style="color:#a6e22e">desc</span>(gr_tbl<span style="color:#f92672">$</span>Average_Rating)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">subset</span>(Average_Rating<span style="color:#f92672">&gt;</span><span style="color:#ae81ff">4.50</span>) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">select</span>(Title, My_Rating, Average_Rating) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">gather</span>(Rating_Type, Rating, Average_Rating<span style="color:#f92672">:</span>My_Rating)
+
+<span style="color:#a6e22e">ggplot</span>(best_books, <span style="color:#a6e22e">aes</span>(Title, Rating, fill<span style="color:#f92672">=</span>Rating_Type)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_col</span>(position<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;dodge&#34;</span>) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">scale_x_discrete</span>(labels<span style="color:#f92672">=</span><span style="color:#a6e22e">wrap_format</span>(<span style="color:#ae81ff">5</span>)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">labs</span>(title<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;The 10 Highest Rated Books I&#39;ve Read on Goodreads&#34;</span>, subtitle<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;My Rating vs. The Average Reader&#39;s Rating&#34;</span>) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">scale_fill_manual</span>(values<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;skyblue&#34;</span>,<span style="color:#e6db74">&#34;pink&#34;</span>))
+</code></pre></div><p><!-- raw HTML omitted --></p>
+<h1 id="sources-of-error--takeaways">Sources of Error &amp; Takeaways</h1>
+<p>As usual, several assumptions and errors are present in this data. First, it&rsquo;s not always the best to use the arithmetic mean, but until I take higher level probability and statistics, which looks like it&rsquo;ll happen this upcoming Fall semester, I&rsquo;m using the arithmetic means for now.</p>
+<p>The other issue is that Goodreads only allows you to rate a book from 1-5, no half-stars and no non-integer values.</p>
+<p>There&rsquo;s also bias in my data because this is <em>my</em> Goodreads data, and I like to give high ratings to books. I read a lot of chick lit, teen romance, and murder mysteries, but I have broadly popular tastes. That being said, this was a fun data set to poke around with; I practiced a bit more of my <em>dplyr</em> verbs, and I&rsquo;m wondering what other websites I could download my data from to fool around with!</p>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+  </body>
+</html>
+

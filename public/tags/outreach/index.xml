@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>outreach on Graph My Undergrad</title>
+    <link>/tags/outreach/</link>
+    <description>Recent content in outreach on Graph My Undergrad</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 08 May 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/outreach/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Outreach, WiSTEM, and R</title>
+      <link>/2019/05/08/r-outreach/</link>
+      <pubDate>Wed, 08 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/05/08/r-outreach/</guid>
+      <description>In this post, I’m going to talk a little bit less about graphs and data, and more about outreach.
+As a minority in STEM, I’m really interested in outreach, science commmunication, and the increase of diversity in my field. So when the STEM Ambassadors Program at UMass offered the opportunity to create an activity centered around my research interests to “pitch” my science to a group of middle schoolers, I jumped at the chance.</description>
+    </item>
+    
+  </channel>
+</rss>

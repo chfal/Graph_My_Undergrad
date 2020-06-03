@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.72.0" />
+
+
+<title>Word Clouds: An Adventure in Text Mining (again!) - Graph My Undergrad</title>
+<meta property="og:title" content="Word Clouds: An Adventure in Text Mining (again!) - Graph My Undergrad">
+
+
+  <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/logo.jpg"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://github.com/chfal">GitHub</a></li>
+    
+    <li><a href="https://twitter.com/chfalvey">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">4 min read</span>
+    
+
+    <h1 class="article-title">Word Clouds: An Adventure in Text Mining (again!)</h1>
+
+    
+    <span class="article-date">2020-01-28</span>
+    
+
+    <div class="article-content">
+      <p>Ever since I&rsquo;ve started this blog, I&rsquo;ve been a huge fan of text mining. And I mean <em>literal</em> text mining, such as <a href="https://www.reddit.com/r/dataisbeautiful/comments/36d3dd/word_cloud_of_100000_messages_from_a_long/">this sweet sentiment analysis</a> a man made of him and his girlfriend&rsquo;s text messages. I realized that my <a href="http://www.beniamino.org/">friend</a> and I had been chatting for over a six months everyday through Facebook Messenger, and jumped at the chance to make some fun word clouds.</p>
+<p>I&rsquo;m going to show the code I wrote to make these graphs, but a lot of it was really difficult and mostly scraped from StackOverflow and again, Julia Silge&rsquo;s awesome resource on <a href="https://www.tidytextmining.com/">Tidytext</a>. So instead of subjecting you to seeing the output of said code, I&rsquo;m presenting it, but have commented it out because the workflow is pretty awful. But sometimes, that&rsquo;s how it be.</p>
+<h1 id="downloading-the-data">Downloading the data</h1>
+<p>Getting the data wasn&rsquo;t that hard. I simply requested a log of my chats from Facebook, which asked me if I wanted to download the files as HTML or .JSON format. I ended up picking .JSON because someone on StackOverflow said to. It took a few minutes for the Facebook gods to give me my data in the form of a 247MB zipped file. When they did, I was surprised at how detailed they were - I had <em>every</em> message I&rsquo;ve ever had with anyone on Facebook. In addition, they had even saved every image, gif, and file I&rsquo;ve ever sent.</p>
+<h1 id="reading-in-the-data">Reading in the data</h1>
+<p>Reading in the data was kind of challenging. I&rsquo;ve never worked with .JSON files before. Luckily, there is a package for that called <a href="https://cran.r-project.org/web/packages/rjson/index.html">rjson</a>.</p>
+<p>Then, I did a ton of data cleaning. The first problem was that there was two different messages scripts. My friend and I have exchanged 20,000 messages, which is apparently too large to be contained in just one file. The .JSON files, which I&rsquo;ve never technically worked with before, were read into R as lists, so I had to unlist everything, and then merge them together.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># library(tidyverse)</span>
+<span style="color:#75715e"># library(rjson)</span>
+<span style="color:#75715e"># library(tidytext)</span>
+<span style="color:#75715e"># library(wordcloud)</span>
+<span style="color:#75715e"># options(stringsAsFactors = FALSE)</span>
+<span style="color:#75715e"># </span>
+<span style="color:#75715e"># #putting json file into r</span>
+<span style="color:#75715e"># messages &lt;- fromJSON(file=&#34;C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/message_1.json&#34;)</span>
+<span style="color:#75715e"># messages2 &lt;- fromJSON(file=&#34;C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/message_2.json&#34;)</span>
+<span style="color:#75715e"># </span>
+<span style="color:#75715e"># #for each emessage i want: sender_name, content. time stamp would be cool, but for now, we are keeping it simple stupid</span>
+<span style="color:#75715e"># </span>
+</code></pre></div><p>Then, I cleaned and subsetted the messages and removed stop words.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># #cleaning, subsetting</span>
+<span style="color:#75715e"># class(messages)</span>
+<span style="color:#75715e"># </span>
+<span style="color:#75715e"># message2 &lt;- messages$messages</span>
+<span style="color:#75715e"># message3 &lt;- messages2$messages</span>
+<span style="color:#75715e"># </span>
+<span style="color:#75715e"># </span>
+<span style="color:#75715e"># #not exactly sure what this is going to do, but it works</span>
+<span style="color:#75715e"># combined_messages &lt;- rbind(message2,message3)</span>
+<span style="color:#75715e"># mystery &lt;- as.data.frame(do.call(rbind, combined_messages))</span>
+<span style="color:#75715e"># </span>
+<span style="color:#75715e"># #here are some stop words, i think there may be bugs in how things are defined as &#34;words&#34; in the process because i don&#39;t think either of us had typed just &#34;?&#34; by itself for example, and i think file names are read too hence png/jpg</span>
+<span style="color:#75715e"># </span>
+<span style="color:#75715e"># mystopwords &lt;- tibble(word=c(&#34;?&#34;,&#34;?&#34;,&#34;?&#34;,&#34;bengreen_70fc0z5vcq&#34;, &#34;png&#34;, &#34;jpg&#34;, &#34;yeah&#34;))</span>
+</code></pre></div><p>After I cleaned and removed stop words, I separated the messages out by who had sent them.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># </span>
+<span style="color:#75715e"># #cleo&#39;s messages and unnested tokens</span>
+<span style="color:#75715e"># chf_messages &lt;- messages_cleaned %&gt;%</span>
+<span style="color:#75715e">#   subset(messages_cleaned$sender_name ==&#34;Cleo Falvey&#34;)</span>
+<span style="color:#75715e"># </span>
+<span style="color:#75715e"># unlisted_messages_chf &lt;- unlist(chf_messages$content) %&gt;%</span>
+<span style="color:#75715e">#   as.tibble()</span>
+<span style="color:#75715e"># </span>
+<span style="color:#75715e"># chf_unnested_tokens &lt;- tidytext::unnest_tokens(unlisted_messages_chf, word, value)</span>
+<span style="color:#75715e"># </span>
+<span style="color:#75715e"># chf_words_in_counts &lt;- chf_unnested_tokens %&gt;%</span>
+<span style="color:#75715e">#   anti_join(stop_words) %&gt;%</span>
+<span style="color:#75715e">#   anti_join(mystopwords) %&gt;%</span>
+<span style="color:#75715e">#   count(word, sort=TRUE)</span>
+<span style="color:#75715e"># </span>
+<span style="color:#75715e"># #ben&#39;s messages and unnested tokens</span>
+<span style="color:#75715e"># </span>
+<span style="color:#75715e"># bg_messages &lt;- messages_cleaned %&gt;%</span>
+<span style="color:#75715e">#   subset(messages_cleaned$sender_name==&#34;Ben Green&#34;)</span>
+<span style="color:#75715e"># </span>
+<span style="color:#75715e"># unlisted_messages_bg &lt;- unlist(bg_messages$content) %&gt;%</span>
+<span style="color:#75715e">#   as.tibble()</span>
+<span style="color:#75715e"># </span>
+<span style="color:#75715e"># bg_unnested_tokens &lt;- tidytext::unnest_tokens(unlisted_messages_bg, word, value)</span>
+<span style="color:#75715e"># </span>
+<span style="color:#75715e"># bg_words_in_counts &lt;- bg_unnested_tokens %&gt;%</span>
+<span style="color:#75715e">#   anti_join(stop_words) %&gt;%</span>
+<span style="color:#75715e">#   anti_join(mystopwords) %&gt;%</span>
+<span style="color:#75715e">#   count(word, sort=TRUE)</span>
+</code></pre></div><p>After that, I was able to make my wordclouds! I used the wordcloud package in R. The hardest thing was honestly figuring out what the scale should be. The scale argument is supposed to be a vector that helps size and wrap the words proportional to their frequency. It didn&rsquo;t do that very well, so I ended up guestimating the values until the text <em>sort of</em> wrapped and didn&rsquo;t cut off any of the longer words.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># wordcloud(words = bg_words_in_counts$word, freq=bg_words_in_counts$n, max.words=50, random.order=FALSE, rot.per=.35, colors=brewer.pal(8,&#34;Dark2&#34;), scale=c(.1,1.5))</span>
+<span style="color:#75715e"># </span>
+<span style="color:#75715e"># wordcloud(words = chf_words_in_counts$word, freq=chf_words_in_counts$n, max.words=50, random.order=FALSE, rot.per=.35, colors=brewer.pal(8,&#34;Dark2&#34;),scale=c(.1,1.5))</span>
+</code></pre></div><p>Here are the results!</p>
+<!-- raw HTML omitted -->
+<p>I&rsquo;m planning on presenting more graphs (bar/column, most likely) based on these chat conversations and performing more sentiment analysis. What I&rsquo;d ideally like to do is create an automated pipeline that takes my Facebook messages and sends them to an ever-updated Shiny, because my friend and I have continued our conversation both during and after the creation of these graphs, but that&rsquo;s probably a long way off based on my current limited coding experience.</p>
+<p>Stay tuned for more sentiment analysis later, though!</p>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+  </body>
+</html>
+

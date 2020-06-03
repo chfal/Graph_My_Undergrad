@@ -1,42 +1,181 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Graph My Undergrad</title>
-    <link>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/</link>
+    <link>/</link>
     <description>Recent content on Graph My Undergrad</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 30 Apr 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 03 Jun 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Commute Analysis</title>
+      <link>/2020/06/03/commute-analysis/</link>
+      <pubDate>Wed, 03 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/06/03/commute-analysis/</guid>
+      <description>In-Depth Commute Analysis: Final Project For my final project in my Computational Statistics (Math 448) class, I had to analyze a dataset. I decided to do an indepth analysis of my commute (finally). The results are below!
+Introduction &amp;amp; Data Ever since coming to campus in Fall 2017, I have become obsessed with timing my commute and seeing how long it takes to go to Brookline Village to UMass Boston. This data may have a limited scope of importance, because my own commute has little effect on others’ lives.</description>
+    </item>
+    
+    <item>
+      <title>Zipf&#39;s Law with the Bee Movie</title>
+      <link>/2020/05/08/zipf-s-law-with-the-bee-movie/</link>
+      <pubDate>Fri, 08 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/05/08/zipf-s-law-with-the-bee-movie/</guid>
+      <description>The Bee Movie The Bee Movie is possibly one of the most infamous and widely-memed movies. Hell, a human woman falls in love with a weirdly sexualized bee played by Jerry Seinfield, and many laws of physics are broken - what could be better?
+After seeing this TikTok where a person creates a script in Python to write the Bee Movie script by text, I decided to do some sentiment analysis with the Bee Movie script (which I downloaded here)</description>
+    </item>
+    
+    <item>
+      <title>Word Clouds: An Adventure in Text Mining (again!)</title>
+      <link>/2020/01/28/word-clouds-an-adventure-in-text-mining-again/</link>
+      <pubDate>Tue, 28 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/01/28/word-clouds-an-adventure-in-text-mining-again/</guid>
+      <description>Ever since I&amp;rsquo;ve started this blog, I&amp;rsquo;ve been a huge fan of text mining. And I mean literal text mining, such as this sweet sentiment analysis a man made of him and his girlfriend&amp;rsquo;s text messages. I realized that my friend and I had been chatting for over a six months everyday through Facebook Messenger, and jumped at the chance to make some fun word clouds.
+I&amp;rsquo;m going to show the code I wrote to make these graphs, but a lot of it was really difficult and mostly scraped from StackOverflow and again, Julia Silge&amp;rsquo;s awesome resource on Tidytext.</description>
+    </item>
+    
+    <item>
+      <title>Interspecific Competition Graphs (A.K.A The Worst Graphs I&#39;ve Made, Ever)</title>
+      <link>/2019/11/29/interspecific-competition-graphs/</link>
+      <pubDate>Fri, 29 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/11/29/interspecific-competition-graphs/</guid>
+      <description>The Setup In this blog post, I am going to complain about how difficult it was to recreate this graph that we were supposed to make for Ecology Lab.
+The point of this graph is to show the effect of interspecific competiton on plant biomass (size). The best way interspecific competition can be summed up simply is to say that plants that grow alone (not competing with another species) have more biomass than plants that grow with another species (because they have to compete).</description>
+    </item>
+    
+    <item>
+      <title>Lightning Talks with the Tidyverse Team</title>
+      <link>/2019/10/29/lightning-talks-with-the-tidyverse-team/</link>
+      <pubDate>Tue, 29 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/10/29/lightning-talks-with-the-tidyverse-team/</guid>
+      <description>After some magic where I was suddenly moved up 6 spots on a wait list of 25 people, I was recently able to attend the Lightning Talks by the Tidyverse Team, hosted by R Ladies Boston and the Greater Boston UseR meetup groups! I&amp;rsquo;ve been going to R meetups since last Spring, but I really enjoy meeting new people and I was inordinately excited at the potential of meeting everyone&amp;rsquo;s favourite RStudio scientist, Hadley Wickham.</description>
+    </item>
+    
+    <item>
+      <title>My First ANOVA!!</title>
+      <link>/2019/10/23/my-first-anova/</link>
+      <pubDate>Wed, 23 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/10/23/my-first-anova/</guid>
+      <description>ANOVAs are kinda cool! Today in ecology lab, I learned how to run an Analysis of Variance (ANOVA)! The specific type of ANOVA I learned how to use is the Kruskal-Wallis test. It is nonparametric and doesn&amp;rsquo;t depend on a normal distribution, so we used it. I later learned it is used to compare medians. The Kruskal-Wallis test is ranked, which means that for each factor, a numerical integer is assigned based on how high or low it is relative to the others in the data set, and then you calculate the sum of ranks for each group to get an H-statistic, which is pretty similar to a chi-square value.</description>
+    </item>
+    
+    <item>
+      <title>Island Biogeography Theory Graphs</title>
+      <link>/2019/10/08/island-biogeography-theory-graphs/</link>
+      <pubDate>Tue, 08 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/10/08/island-biogeography-theory-graphs/</guid>
+      <description>I made these cool graphs in ecology lab and now I want to share them!These graphs are about Island Biogeography Theory, which was developed by ecologists E.O. Wilson and R. H. MacArthur in the 1960s. (E.O Wilson works at Harvard, and I got to meet him a few years ago!)
+Island Biogeography Theory is pretty intuitive, but if you’re not an ecologist, I’ll give you the down-low: Basically, as an island gets bigger, it can support more species because it has more resources.</description>
+    </item>
+    
+    <item>
+      <title>Some Updates!</title>
+      <link>/2019/09/11/some-updates/</link>
+      <pubDate>Wed, 11 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/09/11/some-updates/</guid>
+      <description>It’s been awhile since I’ve written in this little project, partially due to finishing up my research internship in Panama (image right: one of our experimental islands, as viewed from the little metal boat we used to jet around in Lake Gatun) and partially due to my computer getting humidity damage and not having enough memory to serve the blog on my replacement computer.
+This semester, I’m finally (finally!) taking MATH 345 - Probability and Statistics - to bulk up my stats skills.</description>
+    </item>
+    
+    <item>
+      <title>Tracking My Nightmarish Commute</title>
+      <link>/2019/06/27/tracking-my-nightmarish-commute/</link>
+      <pubDate>Thu, 27 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/06/27/tracking-my-nightmarish-commute/</guid>
+      <description>At long last, I&amp;rsquo;ve gotten around to playing with the data I&amp;rsquo;ve collected all semester tracking my commute, which I promised to do pretty much the second I started this blog (see my first post). I have a pretty complex commute - I take the MBTA&amp;rsquo;s green line into Park Street and then connect to the red line, so I usually leave the house 1 hour and 15 minutes before class starts.</description>
+    </item>
+    
+    <item>
+      <title>My Panamanian Research Adventure</title>
+      <link>/2019/06/18/panamanian-post-1/</link>
+      <pubDate>Tue, 18 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/06/18/panamanian-post-1/</guid>
+      <description>My Panamanian AdventureI write to you from the wonderful tropical country of Panama! This summer, I was accepted to an internship at the Smithsonian Tropical Research Institute in Gamboa, Panama, with the Angiletta Lab helping study thermal tolerance in Anolis due to climate change I’ll be in Panama until September 1st, 2019.
+Figure 1: The view from the Gamboa Rainforest Resort in Panama near the Smithsonian Tropical Research Institute.</description>
+    </item>
+    
+    <item>
+      <title>I Have Opinions on Books (Exploring my Goodreads Data)</title>
+      <link>/2019/05/27/opinions-on-books/</link>
+      <pubDate>Mon, 27 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/05/27/opinions-on-books/</guid>
+      <description>I&amp;rsquo;ve always been a huge reader, so when I discovered Goodreads in 2013 in middle school, I&amp;rsquo;ve pretty much logged every single book I&amp;rsquo;ve read since on the website.
+I had always wanted to explore my Goodreads data, because it&amp;rsquo;s a big data set (I&amp;rsquo;ve put over 500 books on the site), but hadn&amp;rsquo;t gotten around to it yet as I wasn&amp;rsquo;t sure how to best structure and collect my data set from my Goodreads account.</description>
+    </item>
+    
+    <item>
+      <title>My Lizard Poster</title>
+      <link>/2019/05/20/my-lizard-poster/</link>
+      <pubDate>Mon, 20 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/05/20/my-lizard-poster/</guid>
+      <description>After winning a small research grant with my university, I was asked to create a poster presentation about my work to show off at this year’s showcase, so I’m going to talk a little bit about that in this post!
+The Research GroupI am the only undergraduate in the Revell Lab, a group of lovely people who study urban evolution and write R packages used for phylogenetic analyses (see addendum)*.</description>
+    </item>
+    
+    <item>
+      <title>Graphs that Move: Fun with gganimate!</title>
+      <link>/2019/05/11/graphs-that-move-fun-with-gganimate/</link>
+      <pubDate>Sat, 11 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/05/11/graphs-that-move-fun-with-gganimate/</guid>
+      <description>I recently learned about the gganimate package, which means…
+We can make graphs that move!The future is now, people.
+My first gganimate is below.
+library(ggplot2)library(gganimate)#read in the datagganimate_practice &amp;lt;- read.csv(&amp;quot;image_tracker.csv&amp;quot;)#this is the plotgg_animate_plot &amp;lt;- ggplot(gganimate_practice, aes(Day, Running_Total, color=factor(Week))) +geom_line(size=2) +labs(y=&amp;quot;Running Total&amp;quot;, title=&amp;quot;Image Analyses Per Day&amp;quot;)#now we add the animated layer to the plotgg_animate_plot +transition_reveal(Day)This post may have less text than the other posts…that’s because it speaks for itself.</description>
+    </item>
+    
+    <item>
+      <title>Outreach, WiSTEM, and R</title>
+      <link>/2019/05/08/r-outreach/</link>
+      <pubDate>Wed, 08 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/05/08/r-outreach/</guid>
+      <description>In this post, I’m going to talk a little bit less about graphs and data, and more about outreach.
+As a minority in STEM, I’m really interested in outreach, science commmunication, and the increase of diversity in my field. So when the STEM Ambassadors Program at UMass offered the opportunity to create an activity centered around my research interests to “pitch” my science to a group of middle schoolers, I jumped at the chance.</description>
+    </item>
+    
+    <item>
       <title>Welcome to the new site!</title>
-      <link>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/04/30/welcome-to-the-new-site/</link>
+      <link>/2019/04/30/welcome-to-the-new-site/</link>
       <pubDate>Tue, 30 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/04/30/welcome-to-the-new-site/</guid>
+      <guid>/2019/04/30/welcome-to-the-new-site/</guid>
       <description>Welcome!Welcome to the my brand-new blog! This blog is written using the blogdown package in R that was developed by Yi Hui, created on the Hugo platform, and served on Netlify and Github.
 The creationRecreating my blog is the largest challenge I’ve embarked upon in R so far. It involved using several brand-new tools I’ve never used before, including the RStudio Community website, GitHub, Hugo, and obviously, blogdown.</description>
     </item>
     
     <item>
       <title>R Ladies Meetup #2</title>
-      <link>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/04/16/r-ladies-meetup-2/</link>
+      <link>/2019/04/16/r-ladies-meetup-2/</link>
       <pubDate>Tue, 16 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/04/16/r-ladies-meetup-2/</guid>
+      <guid>/2019/04/16/r-ladies-meetup-2/</guid>
       <description>Today I went to another R-Ladies meetup! Not only was the impostor syndrome of last time assuaged, but the postdoc in my lab also came, which was nice because that meant I also knew someone.
 This month’s meetup was called Intro to Shiny! Shiny is a package in R that creates web-based apps that allow users to play with data in an easy and accessible way. The hard part, of course, is on the developer’s end - making and hosting Shinies are difficult!</description>
     </item>
     
     <item>
       <title>Research Progress Update: More than Halfway there!</title>
-      <link>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/04/15/research-progress-update-more-than-halfway-there/</link>
+      <link>/2019/04/15/research-progress-update-more-than-halfway-there/</link>
       <pubDate>Mon, 15 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/04/15/research-progress-update-more-than-halfway-there/</guid>
+      <guid>/2019/04/15/research-progress-update-more-than-halfway-there/</guid>
       <description>This is an update to my previous post in which I had only done one week of image analysis.
 However, 9.5 weeks later, I am finally done with analyzing over 400 images of lizard claw shape - progress on my independent research project!
 The above graph shows progress as time goes on, adding up to 400. There are a lot of plateaus in the graph, especially in the middle. This is due to the fact that school exists, and I got really busy as the semester picked up.</description>
@@ -44,10 +183,10 @@ The above graph shows progress as time goes on, adding up to 400. There are a lo
     
     <item>
       <title>Jukebox the Ghost: An Adventure in Text Mining, pt. II</title>
-      <link>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/04/03/jukebox-the-ghost-an-adventure-in-text-mining-pt-ii/</link>
+      <link>/2019/04/03/jukebox-the-ghost-an-adventure-in-text-mining-pt-ii/</link>
       <pubDate>Wed, 03 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/04/03/jukebox-the-ghost-an-adventure-in-text-mining-pt-ii/</guid>
+      <guid>/2019/04/03/jukebox-the-ghost-an-adventure-in-text-mining-pt-ii/</guid>
       <description>This is an update to my previous post, where I graphed word frequencies in the total words used by the band Jukebox the Ghost in all of their songs altogether.
 For this post, I’ve made four separate graphs, corresponding to each of the four released albums (Live and Let Ghosts (2008), Everything Under the Sun (2010), Safe Travels (2012), and Off to the Races (2018)).
 And here are the graphs!</description>
@@ -55,39 +194,39 @@ And here are the graphs!</description>
     
     <item>
       <title>Jukebox the Ghost: An Adventure in Text Mining, pt. I</title>
-      <link>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/03/29/jukebox-the-ghost-an-adventure-in-text-mining-pt-i/</link>
+      <link>/2019/03/29/jukebox-the-ghost-an-adventure-in-text-mining-pt-i/</link>
       <pubDate>Fri, 29 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/03/29/jukebox-the-ghost-an-adventure-in-text-mining-pt-i/</guid>
+      <guid>/2019/03/29/jukebox-the-ghost-an-adventure-in-text-mining-pt-i/</guid>
       <description>I had the pleasure of seeing one of my favorite bands last night at the Royale in Boston. Jukebox the Ghost is a power-pop, Queen-inspired band and I recommend them highly.
 One thing I noticed when listening to the songs is that they have a lot of similar words and concepts. Words such as “stars,” “people,” and “everybody” seem to come up again and again in my favorite songs, which include Jumpstarted, Victoria, Everybody’s Lonely, and A La La.</description>
     </item>
     
     <item>
       <title>My First R Meetup</title>
-      <link>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/03/22/my-first-r-meetup/</link>
+      <link>/2019/03/22/my-first-r-meetup/</link>
       <pubDate>Fri, 22 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/03/22/my-first-r-meetup/</guid>
+      <guid>/2019/03/22/my-first-r-meetup/</guid>
       <description>On the hunt for ways to improve my knowledge of R, I stumbled upon the greater Boston area chapter of R-Ladies and decided to go to one of their meetups. As luck would have it, I did not have to wait very long for one of the monthly meetings to occur: Upon joining, the next meetup was only two days away, so I swallowed my anxieties regarding impostor syndrome and decided to go.</description>
     </item>
     
     <item>
       <title>Did Retaking the Physics Exam Improve Scores?</title>
-      <link>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/03/20/did-retaking-the-physics-exam-improve-scores/</link>
+      <link>/2019/03/20/did-retaking-the-physics-exam-improve-scores/</link>
       <pubDate>Wed, 20 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/03/20/did-retaking-the-physics-exam-improve-scores/</guid>
+      <guid>/2019/03/20/did-retaking-the-physics-exam-improve-scores/</guid>
       <description>A few weeks ago, there was a physics exam, and many were disappointed with the scores. In fact, the average was a 54% (and that’s with a six-point curve added to every result). To give students an opportunity to improve (and possibly to improve his end-of-course satisfaction ratings), my professor offered the opportunity of a retake, which was averaged together with the original score.
 One hiccup was that the second exam was out of eighty points rather than one hundred.</description>
     </item>
     
     <item>
       <title>A Statistical Breakdown of the Online Dating Experience</title>
-      <link>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/03/14/a-statistical-breakdown-of-the-online-dating-experience/</link>
+      <link>/2019/03/14/a-statistical-breakdown-of-the-online-dating-experience/</link>
       <pubDate>Thu, 14 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/03/14/a-statistical-breakdown-of-the-online-dating-experience/</guid>
+      <guid>/2019/03/14/a-statistical-breakdown-of-the-online-dating-experience/</guid>
       <description>Like many college students, I have used a dating app to look for “that special someone.” Unlike other college students, I am most strongly interested in doing it for science.
 Running The TestsOnce I had swiped enough, noting down whether I had swiped right (yes) or left (no) and the person’s gender (Side Note #1: I’m bisexual), I collected this data about my choices.
 ## females males## no 40 893## yes 19 48I wanted to test whether there is a difference in the number of women I swiped yes on versus the number of men (Side Note #2: While gender is not a binary, Bumble categorizes it as such).</description>
@@ -95,51 +234,50 @@ Running The TestsOnce I had swiped enough, noting down whether I had swiped rig
     
     <item>
       <title>iNaturalist Graphs</title>
-      <link>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/02/25/inaturalist-graphs/</link>
+      <link>/2019/02/25/inaturalist-graphs/</link>
       <pubDate>Mon, 25 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/02/25/inaturalist-graphs/</guid>
+      <guid>/2019/02/25/inaturalist-graphs/</guid>
       <description>Along with many biologists, ecologists, and general wildlife-lovers, I am an avid user of iNaturalist, and I try to take pictures of organisms I encounter in the field or even around my home city, Boston. (You can see another post I’ve written on the subject here).
 knitr::include_graphics(&amp;quot;/img/inatgraph1.jpeg&amp;quot;)Unfortunately, one limitation, the “invertebrate bias,” is present in the data. A study published by Dr. Mark Titley from Cambridge University Museum of Zoology indicates that invertebrates are not as readily studied by biologists.</description>
     </item>
     
     <item>
       <title>The graph that (may have) started it all...</title>
-      <link>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/02/19/the-graph-that-may-have-started-it-all/</link>
+      <link>/2019/02/19/the-graph-that-may-have-started-it-all/</link>
       <pubDate>Tue, 19 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/02/19/the-graph-that-may-have-started-it-all/</guid>
+      <guid>/2019/02/19/the-graph-that-may-have-started-it-all/</guid>
       <description>This is one of the first graphs I made by myself with original data, which I was super proud of!
 The context for this data is that it came from the organic chemistry class grade spreadsheet, which was sent anonymously to the class after any graded work was returned. Data points are individual students’ performances on the quizzes on the x-axis and their amount of extra credit points amassed by the end of the semester on the y-axis.</description>
     </item>
     
     <item>
       <title>All in a Week&#39;s Work!</title>
-      <link>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/02/14/all-in-a-week-s-work/</link>
+      <link>/2019/02/14/all-in-a-week-s-work/</link>
       <pubDate>Thu, 14 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/02/14/all-in-a-week-s-work/</guid>
+      <guid>/2019/02/14/all-in-a-week-s-work/</guid>
       <description>This is the first post on this blog that actually has a graph on it!
 One project for my research currently involves measuring 500 different images of Anolis claws. This is no small task, considering that each image takes up to four minutes to complete. This graph shows how many Anolis images I was able to complete in the span of one week, which is looking pretty good at 155 images.</description>
     </item>
     
     <item>
       <title>And We&#39;re Off to the Races!</title>
-      <link>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/02/12/test-post/</link>
+      <link>/2019/02/12/test-post/</link>
       <pubDate>Tue, 12 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/2019/02/12/test-post/</guid>
+      <guid>/2019/02/12/test-post/</guid>
       <description>Data collection has officially begun!This morning sparked the first day of tracking commute times! This semester I have a 9 a.m. three days a week (M/W/F) and an 8 a.m. two days a week (T/R). This begs the question…why does my 8 a.m. commute seem shorter? Is it just an early-morning time warp? Is it the avoidance of the peak rush hour times, making my commute actually quite significantly shorter?</description>
     </item>
     
     <item>
       <title>About Me</title>
-      <link>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/about/</link>
+      <link>/about/</link>
       <pubDate>Thu, 05 May 2016 21:48:51 -0700</pubDate>
       
-      <guid>/C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown/about/</guid>
-      <description>Can anything be turned into a statistic?
-Hi, I’m Cleo! I&#39;m an undergraduate biology major with an undeclared math minor, and I’m currently learning R. After using R’s data sets to run tests and create graphs, I’ve decided to start collecting my own. On this blog, I&#39;ll collect data on a few different projects about commute times and lengths (critical to anyone who lives in the city), make progress on my independent research, and track exam scores from classes.</description>
+      <guid>/about/</guid>
+      <description>&amp;lt;img src=&amp;rdquo;/img/profile_pic.jpg&amp;rdquo; &amp;ldquo;width=&amp;quot;323&amp;rdquo; height=&amp;quot;323&amp;rdquo;/&amp;gt;</description>
     </item>
     
   </channel>

@@ -1,0 +1,11 @@
+﻿treatment_id,proportion_mustard,seed_density,mustard_grown,alfalfa_grown,biomass_alfalfa,biomass_mustard,total_biomass
+1 Mustard,1,Low,185,0,0,15,15
+1/4 Mustard,0.25,Low,41,190,4.2,4.8,9
+1/2 Mustard,0.5,Low,67.33333333,63.66666667,1.433333333,6.833333333,8.266666667
+3/4 Mustard,0.75,Low,101.3333333,41,0.666666667,9.466666667,10.13333333
+0 Mustard,0,Low,0,240,6.3,0,6.3
+1 Mustard,1,High,332.3333333,0,0,21.8,21.8
+1/4 Mustard,0.25,High,55,116.5,2.9,5.533333333,8.433333333
+1/2 Mustard,0.5,High,133.6666667,108.6666667,3.433333333,9.566666667,13
+3/4 Mustard,0.75,High,155.3333333,81,1.533333333,11.83333333,13.36666667
+0 Mustard,0,High,0,476.5,11,0,11

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>R on Graph My Undergrad</title>
+    <link>/tags/r/</link>
+    <description>Recent content in R on Graph My Undergrad</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 03 Jun 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/r/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Commute Analysis</title>
+      <link>/2020/06/03/commute-analysis/</link>
+      <pubDate>Wed, 03 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/06/03/commute-analysis/</guid>
+      <description>In-Depth Commute Analysis: Final Project For my final project in my Computational Statistics (Math 448) class, I had to analyze a dataset. I decided to do an indepth analysis of my commute (finally). The results are below!
+Introduction &amp;amp; Data Ever since coming to campus in Fall 2017, I have become obsessed with timing my commute and seeing how long it takes to go to Brookline Village to UMass Boston. This data may have a limited scope of importance, because my own commute has little effect on others’ lives.</description>
+    </item>
+    
+    <item>
+      <title>Word Clouds: An Adventure in Text Mining (again!)</title>
+      <link>/2020/01/28/word-clouds-an-adventure-in-text-mining-again/</link>
+      <pubDate>Tue, 28 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/01/28/word-clouds-an-adventure-in-text-mining-again/</guid>
+      <description>Ever since I&amp;rsquo;ve started this blog, I&amp;rsquo;ve been a huge fan of text mining. And I mean literal text mining, such as this sweet sentiment analysis a man made of him and his girlfriend&amp;rsquo;s text messages. I realized that my friend and I had been chatting for over a six months everyday through Facebook Messenger, and jumped at the chance to make some fun word clouds.
+I&amp;rsquo;m going to show the code I wrote to make these graphs, but a lot of it was really difficult and mostly scraped from StackOverflow and again, Julia Silge&amp;rsquo;s awesome resource on Tidytext.</description>
+    </item>
+    
+    <item>
+      <title>Interspecific Competition Graphs (A.K.A The Worst Graphs I&#39;ve Made, Ever)</title>
+      <link>/2019/11/29/interspecific-competition-graphs/</link>
+      <pubDate>Fri, 29 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/11/29/interspecific-competition-graphs/</guid>
+      <description>The Setup In this blog post, I am going to complain about how difficult it was to recreate this graph that we were supposed to make for Ecology Lab.
+The point of this graph is to show the effect of interspecific competiton on plant biomass (size). The best way interspecific competition can be summed up simply is to say that plants that grow alone (not competing with another species) have more biomass than plants that grow with another species (because they have to compete).</description>
+    </item>
+    
+    <item>
+      <title>Lightning Talks with the Tidyverse Team</title>
+      <link>/2019/10/29/lightning-talks-with-the-tidyverse-team/</link>
+      <pubDate>Tue, 29 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/10/29/lightning-talks-with-the-tidyverse-team/</guid>
+      <description>After some magic where I was suddenly moved up 6 spots on a wait list of 25 people, I was recently able to attend the Lightning Talks by the Tidyverse Team, hosted by R Ladies Boston and the Greater Boston UseR meetup groups! I&amp;rsquo;ve been going to R meetups since last Spring, but I really enjoy meeting new people and I was inordinately excited at the potential of meeting everyone&amp;rsquo;s favourite RStudio scientist, Hadley Wickham.</description>
+    </item>
+    
+    <item>
+      <title>My First ANOVA!!</title>
+      <link>/2019/10/23/my-first-anova/</link>
+      <pubDate>Wed, 23 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/10/23/my-first-anova/</guid>
+      <description>ANOVAs are kinda cool! Today in ecology lab, I learned how to run an Analysis of Variance (ANOVA)! The specific type of ANOVA I learned how to use is the Kruskal-Wallis test. It is nonparametric and doesn&amp;rsquo;t depend on a normal distribution, so we used it. I later learned it is used to compare medians. The Kruskal-Wallis test is ranked, which means that for each factor, a numerical integer is assigned based on how high or low it is relative to the others in the data set, and then you calculate the sum of ranks for each group to get an H-statistic, which is pretty similar to a chi-square value.</description>
+    </item>
+    
+    <item>
+      <title>Tracking My Nightmarish Commute</title>
+      <link>/2019/06/27/tracking-my-nightmarish-commute/</link>
+      <pubDate>Thu, 27 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/06/27/tracking-my-nightmarish-commute/</guid>
+      <description>At long last, I&amp;rsquo;ve gotten around to playing with the data I&amp;rsquo;ve collected all semester tracking my commute, which I promised to do pretty much the second I started this blog (see my first post). I have a pretty complex commute - I take the MBTA&amp;rsquo;s green line into Park Street and then connect to the red line, so I usually leave the house 1 hour and 15 minutes before class starts.</description>
+    </item>
+    
+    <item>
+      <title>Outreach, WiSTEM, and R</title>
+      <link>/2019/05/08/r-outreach/</link>
+      <pubDate>Wed, 08 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/05/08/r-outreach/</guid>
+      <description>In this post, I’m going to talk a little bit less about graphs and data, and more about outreach.
+As a minority in STEM, I’m really interested in outreach, science commmunication, and the increase of diversity in my field. So when the STEM Ambassadors Program at UMass offered the opportunity to create an activity centered around my research interests to “pitch” my science to a group of middle schoolers, I jumped at the chance.</description>
+    </item>
+    
+  </channel>
+</rss>

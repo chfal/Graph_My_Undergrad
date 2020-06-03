@@ -1,0 +1,33 @@
+---
+title: 'Graphs that Move: Fun with gganimate!'
+author: ''
+date: '2019-05-11'
+slug: graphs-that-move-fun-with-gganimate
+categories: []
+tags: []
+---
+
+
+
+<p>I recently learned about the <em>gganimate</em> package, which means…</p>
+<div id="we-can-make-graphs-that-move" class="section level1">
+<h1>We can make graphs that move!</h1>
+<p>The future is now, people.</p>
+<p>My first gganimate is below.</p>
+<pre class="r"><code>library(ggplot2)
+library(gganimate)
+
+#read in the data
+gganimate_practice &lt;- read.csv(&quot;image_tracker.csv&quot;)
+
+#this is the plot
+gg_animate_plot &lt;- ggplot(gganimate_practice, aes(Day, Running_Total, color=factor(Week))) +
+  geom_line(size=2) +
+  labs(y=&quot;Running Total&quot;, title=&quot;Image Analyses Per Day&quot;)
+
+#now we add the animated layer to the plot
+gg_animate_plot +
+  transition_reveal(Day)</code></pre>
+<p><img src="/post/2019-05-11-graphs-that-move-fun-with-gganimate_files/figure-html/unnamed-chunk-1-1.gif" width="100%" /></p>
+<p>This post may have less text than the other posts…that’s because it speaks for itself. Also, it’s similar to <a href="http://graphmyundergrad.rbind.io/2019/04/15/research-progress-update-more-than-halfway-there/">this graph</a> that I’ve made for this blog before. I just animated it because it was easy &amp; clean sample data to explore such a fun new package. That being said, I’m planning to make even more gifs in the future, so keep checking back!</p>
+</div>

@@ -1,0 +1,36 @@
+---
+title: 'Graphs that Move: Fun with gganimate!'
+author: ''
+date: '2019-05-11'
+slug: graphs-that-move-fun-with-gganimate
+categories: []
+tags: []
+---
+
+I recently learned about the _gganimate_ package, which means...
+
+# We can make graphs that move!
+
+The future is now, people.
+
+My first gganimate is below.
+
+```{r, out.width="100%"}
+library(ggplot2)
+library(gganimate)
+
+#read in the data
+gganimate_practice <- read.csv("image_tracker.csv")
+
+#this is the plot
+gg_animate_plot <- ggplot(gganimate_practice, aes(Day, Running_Total, color=factor(Week))) +
+  geom_line(size=2) +
+  labs(y="Running Total", title="Image Analyses Per Day")
+
+#now we add the animated layer to the plot
+gg_animate_plot +
+  transition_reveal(Day)
+
+```
+
+This post may have less text than the other posts...that's because it speaks for itself. Also, it's similar to [this graph](http://graphmyundergrad.rbind.io/2019/04/15/research-progress-update-more-than-halfway-there/) that I've made for this blog before. I just animated it because it was easy & clean sample data to explore such a fun new package. That being said, I'm planning to make even more gifs in the future, so keep checking back!

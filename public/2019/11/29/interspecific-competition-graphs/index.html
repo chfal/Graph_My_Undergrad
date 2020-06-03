@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.72.0" />
+
+
+<title>Interspecific Competition Graphs (A.K.A The Worst Graphs I&#39;ve Made, Ever) - Graph My Undergrad</title>
+<meta property="og:title" content="Interspecific Competition Graphs (A.K.A The Worst Graphs I&#39;ve Made, Ever) - Graph My Undergrad">
+
+
+  <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/logo.jpg"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://github.com/chfal">GitHub</a></li>
+    
+    <li><a href="https://twitter.com/chfalvey">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">5 min read</span>
+    
+
+    <h1 class="article-title">Interspecific Competition Graphs (A.K.A The Worst Graphs I&#39;ve Made, Ever)</h1>
+
+    
+    <span class="article-date">2019-11-29</span>
+    
+
+    <div class="article-content">
+      <h1 id="the-setup">The Setup</h1>
+<p>In this blog post, I am going to complain about how difficult it was to recreate <em>this</em> graph that we were supposed to make for Ecology Lab.</p>
+<!-- raw HTML omitted -->
+<p>The point of this graph is to show the effect of <a href="https://sciencing.com/interspecific-competition-vs-intraspecific-competition-10026401.html">interspecific competiton</a> on plant biomass (size). The best way interspecific competition can be summed up simply is to say that plants that grow alone (not competing with another species) have more biomass than plants that grow with another species (because they have to compete). This makes sense because a plant that has to compete has to use energy to get limited resources in the environment, so it has less energy to spend on growing bigger.</p>
+<p>Once we had collected the data in class, which we did by growing a bunch of plants, then we had to graph it similar to the one above.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">#reading file in</span>
+interspecific <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read_csv</span>(<span style="color:#e6db74">&#34;C:/Users/chfal/Documents/GRAPH_MY_UNDERGRAD/BlogDown2/content/post/interspecific_competition.csv&#34;</span>)
+</code></pre></div><pre><code>## Parsed with column specification:
+## cols(
+##   treatment_id = col_character(),
+##   proportion_mustard = col_double(),
+##   seed_density = col_character(),
+##   mustard_grown = col_double(),
+##   alfalfa_grown = col_double(),
+##   biomass_alfalfa = col_double(),
+##   biomass_mustard = col_double(),
+##   total_biomass = col_double()
+## )
+</code></pre><h1 id="the-problem-with-the-graph">The Problem with the Graph</h1>
+<p>I had several issues with this. First of all, the graph above is mostly confusing, so it&rsquo;s hard to tell what is going on. Second of all, even though the graph does <em>not</em> have two y axes, it was a requirement for <em>our</em> project that our graph have two y axes to illustrate the biomass of one competitor versus the biomass of the second competitor.</p>
+<p>And as we all know, it is difficult to do that in R because <em>ggplot2</em> does not love graphs with two y axes.</p>
+<p>I fixed that problem with the package called <a href="https://github.com/cran/plotrix"><em>plotrix</em></a> using the function <em>twoord.plot()</em>. <em>twoord.plot()</em> takes four arguments, one for each axes (lx, rx, ly, ry) where <em>l</em> refers to the left and <em>r</em> refers to the right axes.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">library</span>(plotrix)
+</code></pre></div><h1 id="the-next-problem-with-the-graph">The Next Problem with the Graph</h1>
+<p>After I had figured out how to use Plotrix, my next problem was that I had to draw in the straight lines. The straight lines are theoretical biomasses and did not directly come from the data, so that&rsquo;s what the <em>ablines()</em> are doing. It was a challenge to guess and check the values of the <em>ablines()</em> because I was mainly looking to draw a straight line from each y-intercept to zero. I&rsquo;m sure there&rsquo;s a better way to do this, but it worked for now, even if it was a whack-job solution.</p>
+<p>The last challenge I had with the graph was graphing the green line, which represents total biomass of all of the plants together. This was difficult because I had run out of arguments to put into <em>twoord.plot()</em>! I devised a solution where I just used <em>points()</em> to graph them manually. Again, I&rsquo;m sure there&rsquo;s a better way to solve this, but I was getting a little frustrated and ready to move on.</p>
+<h1 id="so-here-are-the-graphs">So, here are the graphs!</h1>
+<p>Two graphs are presented, representing the high density conditions of 400 mustard and alfalfa seeds, and low density conditions of 200 mustard and alfalfa seeds.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">#filtering file with dplyr</span>
+interspecific_high <span style="color:#f92672">&lt;-</span> interspecific <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">filter</span>(seed_density <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;High&#34;</span>)
+
+interspecific_low <span style="color:#f92672">&lt;-</span> interspecific <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">filter</span>(seed_density <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;Low&#34;</span>)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">#working with low data</span>
+<span style="color:#a6e22e">attach</span>(interspecific_low)
+<span style="color:#a6e22e">twoord.plot</span>(lx<span style="color:#f92672">=</span>proportion_mustard, rx<span style="color:#f92672">=</span>proportion_mustard, ly<span style="color:#f92672">=</span>biomass_alfalfa, ry<span style="color:#f92672">=</span>biomass_mustard, xlab <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Proportion of Mustard&#34;</span>, ylab <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Biomass Alfalfa in Grams&#34;</span>, rylab<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Biomass Mustard in Grams&#34;</span>,type<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;p&#34;</span>, main<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Interspecific Competition: Mustard &amp; Alfalfa Low Seed Densities&#34;</span>, lylim<span style="color:#f92672">=</span><span style="color:#a6e22e">range</span>(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">20</span>), rylim<span style="color:#f92672">=</span><span style="color:#a6e22e">range</span>(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">20</span>), lcol<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;blue&#34;</span>)
+<span style="color:#a6e22e">abline</span>(<span style="color:#ae81ff">6.3</span>,<span style="color:#ae81ff">-6</span>, col<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;blue&#34;</span>)
+<span style="color:#a6e22e">abline</span>(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">15</span>,col<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;red&#34;</span>)
+<span style="color:#a6e22e">abline</span>(<span style="color:#ae81ff">7</span>,<span style="color:#ae81ff">8</span>,col<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;darkgreen&#34;</span>, pch<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>)
+<span style="color:#a6e22e">points</span>(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">6.3</span>, col<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;darkgreen&#34;</span>, pch<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>)
+<span style="color:#a6e22e">points</span>(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">15</span>, col<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;darkgreen&#34;</span>, pch<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>)
+<span style="color:#a6e22e">points</span>(<span style="color:#ae81ff">.25</span>,<span style="color:#ae81ff">9</span>, col<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;darkgreen&#34;</span>, pch<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>)
+<span style="color:#a6e22e">points</span>(<span style="color:#ae81ff">.5</span>,<span style="color:#ae81ff">8.2666</span>, col<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;darkgreen&#34;</span>, pch<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>)
+<span style="color:#a6e22e">points</span>(<span style="color:#ae81ff">.75</span>,<span style="color:#ae81ff">10.133</span>, col<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;darkgreen&#34;</span>, pch<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>)
+</code></pre></div><p><!-- raw HTML omitted --></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">detach</span>(interspecific_low)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">#working with high data</span>
+<span style="color:#a6e22e">attach</span>(interspecific_high)
+<span style="color:#a6e22e">twoord.plot</span>(lx<span style="color:#f92672">=</span>proportion_mustard, rx<span style="color:#f92672">=</span>proportion_mustard, ly<span style="color:#f92672">=</span>biomass_alfalfa, ry<span style="color:#f92672">=</span>biomass_mustard, xlab <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Proportion of Mustard&#34;</span>, ylab <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Biomass Alfalfa in Grams&#34;</span>, rylab<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Biomass Mustard in Grams&#34;</span>,type<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;p&#34;</span>, main<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Interspecific Competition: Mustard &amp; Alfalfa High Seed Densities&#34;</span>, rylim <span style="color:#f92672">=</span> <span style="color:#a6e22e">range</span>(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">30</span>), lylim <span style="color:#f92672">=</span><span style="color:#a6e22e">range</span>(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">30</span>), lcol<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;blue&#34;</span>)
+<span style="color:#a6e22e">abline</span>(<span style="color:#ae81ff">11</span>,<span style="color:#ae81ff">-11</span>, col<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;blue&#34;</span>)
+<span style="color:#a6e22e">abline</span>(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">22</span>, col<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;red&#34;</span>)
+<span style="color:#a6e22e">abline</span>(<span style="color:#ae81ff">11</span>,<span style="color:#ae81ff">12</span>, col<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;darkgreen&#34;</span>)
+<span style="color:#a6e22e">points</span>(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">21.8</span>, col<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;darkgreen&#34;</span>, pch<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>)
+<span style="color:#a6e22e">points</span>(<span style="color:#ae81ff">.25</span>,<span style="color:#ae81ff">8.4333</span>,col<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;darkgreen&#34;</span>,pch<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>)
+<span style="color:#a6e22e">points</span>(<span style="color:#ae81ff">.5</span>,<span style="color:#ae81ff">13</span>,col<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;darkgreen&#34;</span>,pch<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>)
+<span style="color:#a6e22e">points</span>(<span style="color:#ae81ff">.75</span>,<span style="color:#ae81ff">13.6667</span>,col<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;darkgreen&#34;</span>,pch<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>)
+<span style="color:#a6e22e">points</span>(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">11</span>,col<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;darkgreen&#34;</span>,pch<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>)
+</code></pre></div><p><!-- raw HTML omitted --></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">detach</span>(interspecific_high)
+</code></pre></div><h1 id="the-results">The Results</h1>
+<p>The results of the graph do show that interspecific competition was in play, which was the question we were trying to answer. (Gosh, writing about the process of these graphs as well as the experiment is a nightmare!)</p>
+<p>We can infer that interspecific competition is occurring because the experimental data (the green squares) is beneath the line of the ideal data of biomass (the green line.) All this is saying is that when grown together, alfalfa and mustard have a lesser total biomass than they would if they were grown alone under ideal conditions. That means that interspecific competition is affecting this experiment and that plants are using less of their energy to grow large, and more of their energy to take resources for themselves so the other species can&rsquo;t take it.</p>
+<h1 id="plotrix-is-pretty-cool">Plotrix Is Pretty Cool!</h1>
+<p>My final thoughts on using Plotrix was that it was interesting to use base R&rsquo;s plotting graphics rather than ggplot2. A lot of R users are huge fans of ggplot2 and I am among them, because I think the arguments are way cleaner and the whole thing works very cohesively. That being said, Plotrix is a good package and I&rsquo;d totally use it again.</p>
+<p>Mostly I posted on the blog to a) update the blog, b) complain about the fact that I even had to make a double-y-axes graph to begin with, and c) put more code on the internet, because I think that everyone deserves to see this awful, &ldquo;throw-shit-at-the-wall-and-see-what-sticks&rdquo; method I used to construct these bad boys.</p>
+<p>But, I mean, the results do look pretty cool (and sort of like what was supposed to be made)!</p>
+<h3 id="citation">Citation</h3>
+<p>Houpert, Lea, et al. “Mixing Effects in Norway Spruce—European Beech Stands Are Modulated by Site Quality, Stand Age and Moisture Availability.” Forests, vol. 9, no. 2, 9 Feb. 2018, p. 83., doi:10.3390/f9020083.</p>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+
+    
+  </body>
+</html>
+

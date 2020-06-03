@@ -1,0 +1,57 @@
+group_number,plant_number,total_plant_height,height_lowest_leaf,height_lowest_flower,number_leaves,weight_leaves,weight_flowers,weight_stem,habitat,average_plant_stand_height,exposure,moisture_level,habitat_type
+Yellow Team ,1,79,0,63,56,4.2,1.4,3.5,edge,,wind,dry,
+Yellow Team ,2,87,6,79,57,1.8,0.5,3.7,edge,,wind,dry,
+Yellow Team ,3,140,10,96,359,5.6,13.7,20.5,edge,,wind,dry,Old field/uphill
+Yellow Team ,4,123,16.5,96,331,6.2,11.8,20.8,edge,,wind,dry,Old field/uphill
+Yellow Team ,5,115,14,84,356,3.1,5.5,6.4,edge,,wind,dry,Old field/uphill
+Yellow Team ,6,124.5,12,90,379,6,13.3,11.7,edge,,wind,dry,Old field/uphill
+Yellow Team ,7,129.5,12,78,248,4.3,8.9,14.9,edge,,wind,dry,Old field/uphill
+Yellow Team ,8,128,12,98,277,6.9,8.2,18.6,edge,,wind,dry,Old field/uphill
+Yellow Team ,9,135,15,99,392,5.3,20,25.8,edge,,wind,dry,Old field/uphill
+Yellow Team ,10,136,11,101,300,7.9,17.7,29,edge,,wind,dry,Old field/uphill
+Yellow Team ,11,139,10,98,403,6.6,11.4,23.3,edge,,wind,dry,Old field/uphill
+Treehuggers,1,94,10,88,147,6.8,3.3,7.6,edge,,salt spray,dry,shoreline
+Treehuggers,2,90,2,80,175,7.4,7,9.2,edge,,salt spray,moist,shoreline
+Treehuggers,3,98.5,3,87.5,142,5.1,4.1,7,edge,,salt spray,moist,shoreline
+Treehuggers,4,92,2,82,267,8.5,6.3,9.6,edge,,salt spray,moist,shoreline
+Treehuggers,5,115,3,103.5,54,5.9,1.8,7.2,edge,,salt spray,moist,shoreline
+Treehuggers,6,91,2,80,313,7.9,5.1,9.7,edge,,salt spray,moist,shoreline
+Treehuggers,7,118,2,83.5,225,8.8,3.7,11.8,edge,,salt spray,moist,shoreline
+Treehuggers,8,112,14,98.4,61,3.5,2.3,5.5,edge,,wind,dry,shoreline
+Treehuggers,9,102.4,4.3,74,98,6.8,6.7,7.9,edge,,wind,dry,shoreline
+Treehuggers,10,103,5.6,86,248,8.2,4.3,8.2,edge,,wind,dry,shoreline
+Treehuggers,11,148,1.5,117,525,10.3,10.6,20.1,edge,,wind,dry,shoreline
+Treehuggers,12,158,4.5,138,573,11.6,9.2,22.3,edge,,wind,dry,shoreline
+Treehuggers,13,96,10.2,86,63,6.5,1.6,6.7,edge,,salt spray,dry,shoreline
+Treehuggers,14,144,10,123,83,6.2,7.6,22.7,edge,,salt spray,moist,shoreline
+Treehuggers,15,98,1.5,79,173,9.1,11.7,18.8,edge,,salt spray,moist,shoreline
+Dennis,1,202,4,186,553,1.005,0.28,2.565,edge,,moderate,dry,dense grass patch
+Dennis,2,203,4,186,488,0.9,0.31,2.695,edge,,moderate,dry,dense grass patch
+Dennis,3,196,5,169,425,0.69,0.32,2.29,edge,,moderate,dry,dense grass patch
+Dennis,4,188,6,166,323,0.595,0.285,0.83,edge,,moderate,dry,dense grass patch
+Dennis,5,168,1,153,409,0.875,0.375,2.365,edge,,moderate,dry,dense grass patch
+Dennis,6,197,4,176,590,0.865,0.24,2.435,edge,,moderate,dry,dense grass patch
+Dennis,7,183,6,169,437,0.695,0.105,1.565,edge,,moderate,dry,dense grass patch
+Dennis,8,130,2,124,57,0.115,0.045,1.12,edge,,moderate,dry,dense grass patch
+Dennis,9,176,2,143,419,0.505,0.115,1.55,edge,,moderate,dry,dense grass patch
+Dennis,10,117,5,94,177,0.365,0.14,0.825,edge,,moderate,dry,dense grass patch
+Dennis,11,156,8,136,231,0.375,0.29,0.96,edge,,moderate,dry,dense grass patch
+Dennis,12,155,4,141,190,0.34,0.075,0.815,edge,,moderate,dry,dense grass patch
+Dennis,13,192,2,174,392,0.78,0.08,1.2,edge,,moderate,dry,dense grass patch
+Dennis,14,133,5,123,192,0.31,0.1,0.715,edge,,moderate,dry,dense grass patch
+Dennis,15,150,1,136,245,0.395,0.25,1.325,edge,,moderate,dry,dense grass patch
+Los Platanos,1,117,32.6,105.7,42,3.9,2,7.9,edge,9,protected,dry,Near bank of rivershed
+Los Platanos,2,105,24,95.4,57,2.4,0.5,4.5,edge,9,protected,dry,Near bank of rivershed
+Los Platanos,3,155.5,5.4,144.5,117,6.5,2,57.3,edge,2,wind,dry,On road 
+Los Platanos,4,154,8.3,134,241,21.9,13.2,36.4,edge,2,wind,dry,On road 
+Los Platanos,5,64.9,6.5,54.4,20,7,0.9,1,edge,2,wind,dry,On road
+Los Platanos,6,73,3.4,64.4,33,1.2,1.4,1.8,edge,2,wind,dry,On road
+Los Platanos,7,,,,,,,,edge,2,wind,dry,On road
+Los Platanos,8,47,3.4,41.4,19,0.3,0.2,0.3,edge,2,wind,dry,On road
+Los Platanos,9,82.8,2.1,65.8,29,1.6,2.1,2.1,edge,2,wind,dry,On road
+Los Platanos,10,57.8,2.7,47.9,22,0.4,0.7,0.5,edge,2,wind,dry,On road
+Los Platanos,11,77.5,6.6,62.7,23,2,3,5.2,edge,1.5,wind,dry,On road
+Los Platanos,12,58.9,4.5,26.2,54,2,1.9,11.2,edge,1.5,wind,dry,On road
+Los Platanos,13,118,4.8,54.7,174,5.8,17.5,34.5,edge,1.5,wind,dry,On road
+Los Platanos,14,42.9,2.8,34.1,15,0.6,0.5,0.2,edge,1.5,wind,dry,On road
+Los Platanos,15,33.3,0.6,29.7,16,0.4,0.4,0.2,edge,1.5,wind,dry,On road
