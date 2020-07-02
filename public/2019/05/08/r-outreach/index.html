@@ -10,7 +10,7 @@
 <meta property="og:title" content="Outreach, WiSTEM, and R - Graph My Undergrad">
 
 
-  <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
+  <link href='../../../../favicon3.ico' rel='icon' type='image/x-icon'/>
 
 
 
@@ -22,8 +22,8 @@
 
 
 
-<link rel="stylesheet" href="/css/fonts.css" media="all">
-<link rel="stylesheet" href="/css/main.css" media="all">
+<link rel="stylesheet" href="../../../../css/fonts.css" media="all">
+<link rel="stylesheet" href="../../../../css/main.css" media="all">
 
 
 
@@ -32,8 +32,8 @@
     <div class="wrapper">
       <header class="header">
         <nav class="nav">
-  <a href="/" class="nav-logo">
-    <img src="/images/logo.jpg"
+  <a href="../../../../" class="nav-logo">
+    <img src="../../../../images/logo.jpg"
          width="50"
          height="50"
          alt="Logo">
@@ -41,11 +41,9 @@
 
   <ul class="nav-links">
     
-    <li><a href="/about/">About</a></li>
+    <li><a href="../../../../about/">About</a></li>
     
     <li><a href="https://github.com/chfal">GitHub</a></li>
-    
-    <li><a href="https://twitter.com/chfalvey">Twitter</a></li>
     
   </ul>
 </nav>
@@ -73,7 +71,7 @@
 <p>In this post, I’m going to talk a little bit less about graphs and data, and more about outreach.</p>
 <p>As a minority in STEM, I’m really interested in outreach, science commmunication, and the increase of diversity in my field. So when the STEM Ambassadors Program at UMass offered the opportunity to create an activity centered around my research interests to “pitch” my science to a group of middle schoolers, I jumped at the chance.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-1"></span>
-<img src="/img/outreach1.jpg" alt="A student and I examined an _Anolis cuvieri_ specimen." width="100%" />
+<img src="../../../../img/outreach1.jpg" alt="A student and I examined an _Anolis cuvieri_ specimen." width="100%" />
 <p class="caption">
 Figure 1: A student and I examined an <em>Anolis cuvieri</em> specimen.
 </p>
@@ -87,13 +85,13 @@ Figure 1: A student and I examined an <em>Anolis cuvieri</em> specimen.
 </ol>
 <p>After the lizards’ snout-vent length was measured (which both disgusted and delighted the participants due to the “ick” factor), the data was input into Excel.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-2"></span>
-<img src="/img/outreach2.jpg" alt="Students reach for specimens in trays to examine." width="100%" />
+<img src="../../../../img/outreach2.jpg" alt="Students reach for specimens in trays to examine." width="100%" />
 <p class="caption">
 Figure 2: Students reach for specimens in trays to examine.
 </p>
 </div>
 <p>And here’s the result! The graph below was created by piping in the measurements from the Excel file. A stacked <em>mutate()</em> and <em>summary()</em> function created the y-variable of mean size, and the <em>fill()</em> in ggplot mapped the species to colors, creating an easy to understand and very visual plot.</p>
-<p><img src="/img/outreach3.png" width="100%" style="display: block; margin: auto;" /></p>
+<p><img src="../../../../img/outreach3.png" width="100%" style="display: block; margin: auto;" /></p>
 <p>The beautiful graph aside, there were some issues that I’m planning on wrangling for the next time around. First, sometimes when the middle schoolers entered their data, Excel misunderstood it as a date and R didn’t read the measurements correctly. Second, in the half hour activity there wasn’t enough time to explain adequately that R is a statistical languag that’s super important and can do a lot of other things besides create cool graphs. In the future, my lab and I have discussed making a Shiny for the data ao it’s easy for users to put in measurements and watch directly as the graph is built for them.</p>
 <p>Despite the fact that there was some issues with the code, the activity was a success. It was great to participate in such an activity which hopefully inspired future steminists &amp; R-ladies!</p>
 
@@ -108,10 +106,10 @@ Figure 2: Students reach for specimens in trays to examine.
       <footer class="footer">
         <ul class="footer-links">
           <li>
-            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+            <a href="../../../../index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
           </li>
           <li>
-            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="../../../../images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
           </li>
         </ul>
       </footer>

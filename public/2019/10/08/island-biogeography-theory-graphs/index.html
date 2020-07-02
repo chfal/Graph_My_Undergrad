@@ -10,7 +10,7 @@
 <meta property="og:title" content="Island Biogeography Theory Graphs - Graph My Undergrad">
 
 
-  <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
+  <link href='../../../../favicon3.ico' rel='icon' type='image/x-icon'/>
 
 
 
@@ -27,8 +27,8 @@
 
 
 
-<link rel="stylesheet" href="/css/fonts.css" media="all">
-<link rel="stylesheet" href="/css/main.css" media="all">
+<link rel="stylesheet" href="../../../../css/fonts.css" media="all">
+<link rel="stylesheet" href="../../../../css/main.css" media="all">
 
 
 
@@ -37,8 +37,8 @@
     <div class="wrapper">
       <header class="header">
         <nav class="nav">
-  <a href="/" class="nav-logo">
-    <img src="/images/logo.jpg"
+  <a href="../../../../" class="nav-logo">
+    <img src="../../../../images/logo.jpg"
          width="50"
          height="50"
          alt="Logo">
@@ -46,11 +46,9 @@
 
   <ul class="nav-links">
     
-    <li><a href="/about/">About</a></li>
+    <li><a href="../../../../about/">About</a></li>
     
     <li><a href="https://github.com/chfal">GitHub</a></li>
-    
-    <li><a href="https://twitter.com/chfalvey">Twitter</a></li>
     
   </ul>
 </nav>
@@ -83,7 +81,7 @@
 <div id="collecting-the-data-ecology-lab-is-fun" class="section level1">
 <h1>Collecting the Data: Ecology Lab is Fun!</h1>
 <p>In my ecology lab class, we were testing whether logs at the <a href="">Ponkapoag Bog Trail</a> were behaving as islands for species, in that they were harbouring species because they can be a specialized habitat. To do this, we went outside (yay!) and flipped over a bunch of logs to see what was underneath them. We also counted the number of species. Including <a href="https://www.massaudubon.org/learn/nature-wildlife/reptiles-amphibians/salamanders/salamander-species-in-massachusetts">this cool salamander</a> (<em>Plethodon cinerea</em>, if you want to learn more about it.)</p>
-<p><img src="/img/salamander2.jpg" width="50%" style="display: block; margin: auto;" /></p>
+<p><img src="../../../../img/salamander2.jpg" width="50%" style="display: block; margin: auto;" /></p>
 <p>While it was fun to go outside and dig around in the dirt for a few hours where I’d normally be in school, what wasn’t fun were these <em>mutates()</em>. I had to do these mutates on the dataset because it’s important that all the variables be on the logarithmic scale, but we had to add .01 to all of the data points because the log of zero is undefined, but .01 is negligible, and that allows logarithms to be taken for all the data points.</p>
 <pre class="r"><code>ecology_lab_data &lt;- ecology_lab_data %&gt;%
   mutate(log_area_log = log(log_area) + .01) %&gt;%
@@ -96,7 +94,7 @@
 <p>The graphs are here! These graphs relate the area of the log to the number of species found underneath it. We would expect that this should be positive if the logs are behaving as islands because they’re harbouring species. We also expect that logs that are close to each other have a higher number of species because the species can travel back and forth.</p>
 <pre><code>## Warning: Removed 1 rows containing non-finite values (stat_smooth).</code></pre>
 <pre><code>## Warning: Removed 1 rows containing missing values (geom_point).</code></pre>
-<p><img src="/post/2019-10-08-island-biogeography-theory-graphs_files/figure-html/unnamed-chunk-4-1.png" width="672" /><img src="/post/2019-10-08-island-biogeography-theory-graphs_files/figure-html/unnamed-chunk-4-2.png" width="672" /></p>
+<p><img src="../../../../post/2019-10-08-island-biogeography-theory-graphs_files/figure-html/unnamed-chunk-4-1.png" width="672" /><img src="../../../../post/2019-10-08-island-biogeography-theory-graphs_files/figure-html/unnamed-chunk-4-2.png" width="672" /></p>
 <div id="faulty-assumptions-nonsignificant-result" class="section level2">
 <h2>Faulty Assumptions = Nonsignificant Result!</h2>
 <p>Without getting too technical, as you can see, the variables are all positively correlated with each other, but not significantly, as they should have been. Not one of the theories of island biogeography was significantly supported. So that begs the question - <em>are</em> logs actually behaving as islands? In order to collect the data, we had to assume that the logs <em>were</em> behaving as islands in order for the hypotheses to hold, but they might not have.</p>
@@ -124,7 +122,7 @@
 <div id="the-salamanders." class="section level1">
 <h1>the salamanders.</h1>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-6"></span>
-<img src="/img/salamander.jpg" alt="I mean, look at him! This cutie definitely belongs in [r/tinyanimalsonfingers.](https://www.reddit.com/r/tinyanimalsonfingers/)" width="50%" />
+<img src="../../../../img/salamander.jpg" alt="I mean, look at him! This cutie definitely belongs in [r/tinyanimalsonfingers.](https://www.reddit.com/r/tinyanimalsonfingers/)" width="50%" />
 <p class="caption">
 Figure 1: I mean, look at him! This cutie definitely belongs in <a href="https://www.reddit.com/r/tinyanimalsonfingers/">r/tinyanimalsonfingers.</a>
 </p>
@@ -142,10 +140,10 @@ Figure 1: I mean, look at him! This cutie definitely belongs in <a href="https:/
       <footer class="footer">
         <ul class="footer-links">
           <li>
-            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+            <a href="../../../../index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
           </li>
           <li>
-            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="../../../../images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
           </li>
         </ul>
       </footer>
@@ -166,7 +164,7 @@ Figure 1: I mean, look at him! This cutie definitely belongs in <a href="https:/
 
 
     
-<script src="/js/math-code.js"></script>
+<script src="../../../../js/math-code.js"></script>
 <script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 

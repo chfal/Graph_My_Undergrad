@@ -10,7 +10,7 @@
 <meta property="og:title" content="Did Retaking the Physics Exam Improve Scores? - Graph My Undergrad">
 
 
-  <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
+  <link href='../../../../favicon3.ico' rel='icon' type='image/x-icon'/>
 
 
 
@@ -27,8 +27,8 @@
 
 
 
-<link rel="stylesheet" href="/css/fonts.css" media="all">
-<link rel="stylesheet" href="/css/main.css" media="all">
+<link rel="stylesheet" href="../../../../css/fonts.css" media="all">
+<link rel="stylesheet" href="../../../../css/main.css" media="all">
 
 
 
@@ -37,8 +37,8 @@
     <div class="wrapper">
       <header class="header">
         <nav class="nav">
-  <a href="/" class="nav-logo">
-    <img src="/images/logo.jpg"
+  <a href="../../../../" class="nav-logo">
+    <img src="../../../../images/logo.jpg"
          width="50"
          height="50"
          alt="Logo">
@@ -46,11 +46,9 @@
 
   <ul class="nav-links">
     
-    <li><a href="/about/">About</a></li>
+    <li><a href="../../../../about/">About</a></li>
     
     <li><a href="https://github.com/chfal">GitHub</a></li>
-    
-    <li><a href="https://twitter.com/chfalvey">Twitter</a></li>
     
   </ul>
 </nav>
@@ -78,7 +76,7 @@
 <p>A few weeks ago, there was a physics exam, and many were disappointed with the scores. In fact, the average was a 54% (and that’s with a six-point curve added to every result). To give students an opportunity to improve (and possibly to improve his end-of-course satisfaction ratings), my professor offered the opportunity of a retake, which was averaged together with the original score.</p>
 <p>One hiccup was that the second exam was out of eighty points rather than one hundred. To scale the data, I used dplyr’s mutate() function to multiply the retake exam scores by 100/80, thus scaling the data such that both were out of one hundred and thus comparable.</p>
 <pre class="r"><code>knitr::include_graphics(&quot;/img/Physics_Retake_Exam2.jpeg&quot;)</code></pre>
-<p><img src="/img/Physics_Retake_Exam2.jpeg" width="100%" style="display: block; margin: auto;" /></p>
+<p><img src="../../../../img/Physics_Retake_Exam2.jpeg" width="100%" style="display: block; margin: auto;" /></p>
 <p>I used the PairedData package to pair these data together to create this graphic above. Lines represent the trajectory of each individual student’s grade across the two exams. Some students had high grades originally and did not opt to take the second exam, thus, there is bias in which students are represented as the package automatically removes all empty variables. However, there is a general trend of the lines traveling up and to the right, suggesting that there was an overall improvement in performance.</p>
 <pre class="r"><code>library(tidyverse)</code></pre>
 <pre><code>## -- Attaching packages ------------------- tidyverse 1.2.1 --</code></pre>
@@ -117,10 +115,10 @@ t.test(physics_new$Ex1,physics_new$R.t,paired=TRUE,alternative=&quot;less&quot;)
       <footer class="footer">
         <ul class="footer-links">
           <li>
-            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+            <a href="../../../../index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
           </li>
           <li>
-            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="../../../../images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
           </li>
         </ul>
       </footer>
@@ -141,7 +139,7 @@ t.test(physics_new$Ex1,physics_new$R.t,paired=TRUE,alternative=&quot;less&quot;)
 
 
     
-<script src="/js/math-code.js"></script>
+<script src="../../../../js/math-code.js"></script>
 <script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 

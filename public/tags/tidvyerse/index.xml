@@ -6,10 +6,20 @@
     <description>Recent content in tidvyerse on Graph My Undergrad</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 03 Jun 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 01 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/tidvyerse/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Exploring my Google Fit Data</title>
+      <link>/2020/07/01/exploring-my-google-fit-data/</link>
+      <pubDate>Wed, 01 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/07/01/exploring-my-google-fit-data/</guid>
+      <description>Introduction A lot has changed as a result of the Covid-19 pandemic, including the fact that we basically don&amp;rsquo;t leave our houses to see our friends, everything happens on Zoom, and we&amp;rsquo;re moving around a lot less (my summer internship has me examining large-scale mobility data changes, more on that later).
+However, one of my pre-pandemic goals was to get better at working out every day and keeping in shape. In this post, I&amp;rsquo;m going to take a look at the Google fit data (collected from my smartphone, auto-tracking steps, moving/active minutes) before and after the pandemic to see what it looks like.</description>
+    </item>
     
     <item>
       <title>Commute Analysis</title>

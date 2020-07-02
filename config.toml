@@ -1,5 +1,5 @@
 baseurl = "/"
-relativeurls= false 
+relativeurls= true
 languageCode = "en-us"
 title = "Graph My Undergrad"
 theme = "hugo-lithium"
@@ -16,9 +16,6 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 [[menu.main]]
     name = "GitHub"
     url = "https://github.com/chfal"
-[[menu.main]]
-    name = "Twitter"
-    url = "https://twitter.com/chfalvey"
 
 [params]
     description = "A journey through biology, statistics, and R."

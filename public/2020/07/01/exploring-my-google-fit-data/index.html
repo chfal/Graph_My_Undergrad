@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.72.0" />
+
+
+<title>Exploring my Google Fit Data - Graph My Undergrad</title>
+<meta property="og:title" content="Exploring my Google Fit Data - Graph My Undergrad">
+
+
+  <link href='../../../../favicon3.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="../../../../css/fonts.css" media="all">
+<link rel="stylesheet" href="../../../../css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="../../../../" class="nav-logo">
+    <img src="../../../../images/logo.jpg"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="../../../../about/">About</a></li>
+    
+    <li><a href="https://github.com/chfal">GitHub</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">6 min read</span>
+    
+
+    <h1 class="article-title">Exploring my Google Fit Data</h1>
+
+    
+    <span class="article-date">2020-07-01</span>
+    
+
+    <div class="article-content">
+      <h1 id="introduction">Introduction</h1>
+<p>A lot has changed as a result of the Covid-19 pandemic, including the fact that we basically don&rsquo;t leave our houses to see our friends, everything happens on Zoom, and we&rsquo;re moving around a lot less (my summer internship has me examining large-scale mobility data changes, more on that later).</p>
+<p>However, one of my pre-pandemic goals was to get better at working out every day and keeping in shape. In this post, I&rsquo;m going to take a look at the Google fit data (collected from my smartphone, auto-tracking steps, moving/active minutes) before and after the pandemic to see what it looks like.</p>
+<h1 id="getting-the-data">Getting the Data</h1>
+<p>First, I had to download my Google Fit data. I got that by going to my Google account and opening up Google Takeout, which is the company&rsquo;s system for managing its users&rsquo; requests for data. It takes a while for Google to compress its huge amounts of data on you into one gigantic .zip file (about 10 minutes), but once it&rsquo;s ready, they send you a link to your email.</p>
+<p>Once I downloaded the .zip file, I extracted everything. There is a lot of files I didn&rsquo;t end up using simply because they basically make one spreadsheet per day of your daily activity, and I didn&rsquo;t want to multimerge 612 .csv files even though it is theoretically possible. I just wanted the summaries, which is only one .csv file helpfully called &ldquo;Daily Summaries.&rdquo;</p>
+<p>Here&rsquo;s what the data looks like. It&rsquo;s luckily already in Tidy format, which is super nice. We&rsquo;ve got date, calories burned (an estimate given height/weight/age), distance, latitude/longitude, varying speeds and times of activities. However, the metrics I wanted to compare the most were the move minutes (how many minutes a day I was active), heart points (the website says that you can earn two points per minute for intense activity and one point per minute for moderately intense activity, although the delineation on that is unclear), step count, and heart minutes.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">head</span>(fit_data)
+</code></pre></div><pre><code>## # A tibble: 6 x 25
+##   Date       `Calories (kcal~ `Distance (m)` `Low latitude (~ `Low longitude ~
+##   &lt;date&gt;                &lt;dbl&gt;          &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;
+## 1 2018-10-30             247.            NA              NA               NA  
+## 2 2018-10-31            1427.            NA              NA               NA  
+## 3 2018-11-01            1437.           159.             NA               NA  
+## 4 2018-11-02            2062.          6627.             42.3            -71.1
+## 5 2018-11-03            1733.          2924.             42.4            -71.2
+## 6 2018-11-04            1562.           680.             42.3            -71.1
+## # ... with 20 more variables: `High latitude (deg)` &lt;dbl&gt;, `High longitude
+## #   (deg)` &lt;dbl&gt;, `Average speed (m/s)` &lt;dbl&gt;, `Max speed (m/s)` &lt;dbl&gt;, `Min
+## #   speed (m/s)` &lt;dbl&gt;, `Step count` &lt;dbl&gt;, `Average weight (kg)` &lt;dbl&gt;, `Max
+## #   weight (kg)` &lt;dbl&gt;, `Min weight (kg)` &lt;dbl&gt;, `Move Minutes count` &lt;dbl&gt;,
+## #   `Heart Points` &lt;dbl&gt;, `Heart Minutes` &lt;dbl&gt;, `Biking duration (ms)` &lt;dbl&gt;,
+## #   `Inactive duration (ms)` &lt;dbl&gt;, `Walking duration (ms)` &lt;dbl&gt;, `Running
+## #   duration (ms)` &lt;dbl&gt;, `Dancing duration (ms)` &lt;dbl&gt;, `Treadmill running
+## #   duration (ms)` &lt;dbl&gt;, `Swimming duration (ms)` &lt;dbl&gt;, `Yoga duration
+## #   (ms)` &lt;dbl&gt;
+</code></pre><h1 id="cleaning-the-data">Cleaning the Data</h1>
+<p>Since the data was pretty tidy already, that made my job a lot easier, especially because I didn&rsquo;t want to have to multimerge all the .csv files. I decided I wanted to filter it into two ranges, so I used <em>filter()</em> to filter by date. I chose 2020-03-12, or March 12th, 2020, to be the date separating before and after the pandemic. I did that because that&rsquo;s the day we all got sent home from school to start Zoom University.</p>
+<p>Another problem with the data was anything that had a zero value was actually an NA so I needed to replace that.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">before_covid <span style="color:#f92672">&lt;-</span> fit_data <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">filter</span>(Date <span style="color:#f92672">&gt;=</span> <span style="color:#e6db74">&#34;2020-01-01&#34;</span>) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">filter</span>(Date <span style="color:#f92672">&lt;=</span> <span style="color:#e6db74">&#34;2020-03-11&#34;</span>) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">mutate_if</span>(is.numeric, <span style="color:#f92672">~</span><span style="color:#a6e22e">replace</span>(., <span style="color:#a6e22e">is.na</span>(.), <span style="color:#ae81ff">0</span>))
+after_covid <span style="color:#f92672">&lt;-</span> fit_data <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">filter</span>(Date <span style="color:#f92672">&gt;=</span> <span style="color:#e6db74">&#34;2020-03-12&#34;</span>) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">mutate_if</span>(is.numeric, <span style="color:#f92672">~</span><span style="color:#a6e22e">replace</span>(., <span style="color:#a6e22e">is.na</span>(.), <span style="color:#ae81ff">0</span>))
+</code></pre></div><p>Even just simple histograms show a huge difference in activity levels before and after Covid-19.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">hist</span>(before_covid<span style="color:#f92672">$</span>`Step count`, main <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Step Count Before Covid-19&#34;</span>, xlab <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Steps&#34;</span>)
+</code></pre></div><p><!-- raw HTML omitted --></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">hist</span>(after_covid<span style="color:#f92672">$</span>`Step count`, main <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Step Count After Covid-19&#34;</span>, xlab <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Steps&#34;</span>)
+</code></pre></div><p><!-- raw HTML omitted --></p>
+<p>In the interest of time, and the fact that all of the other metrics pretty much seemed to disparagingly decrease after Covid-19 - including move minutes (the mean before covid was 96.76 minutes, and the mean after covid was 62.25 minutes), that made me feel pretty sad. Especially because during quarantine I had been trying to bike around and walk as much as possible, even though I&rsquo;m obviously not moving around as much as I used to during the day - no jam-packed schedules of two jobs and 17 credits for me!</p>
+<p>However, there was a glimmer of hope at the end of the tunnel. Both heart points and heart metrics seemed to go up because I try to do a bit of cardio every day (biking, walking) so it seems that although I am moving around less in general and less passively, I&rsquo;m moving around more intentionally and at higher intensities than before.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">hist</span>(before_covid<span style="color:#f92672">$</span>`Heart Points`, main<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Heart Points Before Covid-19&#34;</span>, xlab<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Heart Points&#34;</span>)
+</code></pre></div><p><!-- raw HTML omitted --></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">hist</span>(after_covid<span style="color:#f92672">$</span>`Heart Points`, main<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Heart Points After Covid-19&#34;</span>, xlab<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Heart Points&#34;</span>)
+</code></pre></div><p><!-- raw HTML omitted --></p>
+<p>However, maybe I really do need to check my optimism because it&rsquo;s likely these means are not statistically different. Since only one of the data sets is normally distributed (before Covid-19 is the normal one, because apparently <em>nothing</em> after Covid-19 can be normal), I couldn&rsquo;t really run a z or t-test for means unfortunately.</p>
+<p>#Takeaways</p>
+<p>Nearly all metrics of movement data, including move minutes and step count, were decreased as a result of the physical distancing that occurred during the pandemic. However, the &ldquo;heart points&rdquo; and &ldquo;heart minutes&rdquo; seemed to increase, although that is likely not statistically significant. The differences definitely seemed to be driven by outlier days in the after Covid-19 dataset in which a large amount of exercise was done in a single day (I once biked twenty miles in a day just to see if i could do it.)</p>
+<p>I think this goes as a lesson for all of us trying to be healthy during the pandemic: It&rsquo;s really hard to keep up with the amount of passive exercise I was doing in my regular life, just walking to/from the T and screwing around downtown going shopping and to restaurants. However, since that&rsquo;s on hold due to everyone&rsquo;s safety, it&rsquo;s still important to exercise in a healthy way outside. Going forward, I&rsquo;ve even purchased a FitBit Charge 3 to keep more accountable (and also because I wanted to make more graphs - Fitbit even makes graphs of your sleep, which really delights the little inner nerd in me to wake up to a GRAPH of how I SLEPT. It&rsquo;s the neatest thing since sliced bread!)</p>
+<p>Anyways, keep staying safe and healthy all, and stay tuned for more posts about my own mobility and FitBit data, as well as my internship topic which is about Covid-19 mobility on a larger scale.</p>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="../../../../index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="../../../../images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+<script src="../../../../js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+  </body>
+</html>
+

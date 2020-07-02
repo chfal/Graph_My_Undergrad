@@ -10,7 +10,7 @@
 <meta property="og:title" content="My Lizard Poster - Graph My Undergrad">
 
 
-  <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
+  <link href='../../../../favicon3.ico' rel='icon' type='image/x-icon'/>
 
 
 
@@ -27,8 +27,8 @@
 
 
 
-<link rel="stylesheet" href="/css/fonts.css" media="all">
-<link rel="stylesheet" href="/css/main.css" media="all">
+<link rel="stylesheet" href="../../../../css/fonts.css" media="all">
+<link rel="stylesheet" href="../../../../css/main.css" media="all">
 
 
 
@@ -37,8 +37,8 @@
     <div class="wrapper">
       <header class="header">
         <nav class="nav">
-  <a href="/" class="nav-logo">
-    <img src="/images/logo.jpg"
+  <a href="../../../../" class="nav-logo">
+    <img src="../../../../images/logo.jpg"
          width="50"
          height="50"
          alt="Logo">
@@ -46,11 +46,9 @@
 
   <ul class="nav-links">
     
-    <li><a href="/about/">About</a></li>
+    <li><a href="../../../../about/">About</a></li>
     
     <li><a href="https://github.com/chfal">GitHub</a></li>
-    
-    <li><a href="https://twitter.com/chfalvey">Twitter</a></li>
     
   </ul>
 </nav>
@@ -83,13 +81,13 @@
 </div>
 <div id="my-poster" class="section level1">
 <h1>My Poster</h1>
-<p><img src="/img/poster_slide1.png" width="100%" /><img src="/img/poster_slide2.png" width="100%" /></p>
+<p><img src="../../../../img/poster_slide1.png" width="100%" /><img src="../../../../img/poster_slide2.png" width="100%" /></p>
 </div>
 <div id="my-graph" class="section level1">
 <h1>My Graph</h1>
 <p>Most specifically, I’m proud of the graph that I made for this research! The graph below shows surface roughness, or Ra, which is a measure of shadows in a surface photo and made using a plugin in ImageJ. The boxplot shows the difference in habitat textures between the forest and the city.</p>
 <p>The boxplot is faceted by “use” and “random,” which refers to whether the surface was what the lizard was actually captured on or a random nearby perch. These photos are taken in the field to get a sampling of other options of surfaces that the lizards encounter in their respective habitats.</p>
-<p><img src="/img/perch_boxplot_use_random.jpeg" width="100%" /></p>
+<p><img src="../../../../img/perch_boxplot_use_random.jpeg" width="100%" /></p>
 <p>The plot shows that forest habitats were rougher than urban habitats (with a p-value of 8.08E-13!!!! Wow!!!), which makes sense when you consider that forest habitats include bark, sticks, and branches, whilst urban habitats include metal, glass, and concrete. The plot also shows a slight trend towards lizards being found on rougher surfaces in both habitats, but without behavioral data to back it up, we can’t make any wild claims about lizards choosing habitat.</p>
 <p>This graph was not that hard to make, as I’ve successfully made boxplots with fills and facets before, but I also ran all my stats (with help from the postdocs and my grad student) in R. So this was a fun R learning experience because I’ve never successfully run an ANOVA before! My ANOVA code is below:</p>
 <pre class="r"><code>perch_data &lt;- read.csv(file = &quot;surface_roughness_spreadsheet.csv&quot;, na = &quot;n/a&quot;)
@@ -119,10 +117,10 @@ summary(anova2)</code></pre>
       <footer class="footer">
         <ul class="footer-links">
           <li>
-            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+            <a href="../../../../index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
           </li>
           <li>
-            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="../../../../images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
           </li>
         </ul>
       </footer>

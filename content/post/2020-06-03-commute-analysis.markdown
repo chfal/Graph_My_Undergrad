@@ -20,8 +20,6 @@ Ever since coming to campus in Fall 2017, I have become obsessed with timing my 
 
 This is a more in-depth followup to a previous post on my statistics blog which can be found [here](https://graphmyundergrad.rbind.io/2019/06/27/tracking-my-nightmarish-commute/). Previous analyses have shown that commuting at rush hour took about five minutes longer than not commuting at rush hour.
 
-<img src="commute_map.png" width="100%" />
-
 ## Data
 
 The data that I'm using has been painstakingly(!) collected across six months of commuting to school in a convenience sampling method. The structure of the dataset is as follows:
@@ -59,7 +57,7 @@ The methodology of collecting the data was that every time I commuted to school 
 |wait_red     |      3.18|       3.17|5.96e-12 |
 |walk_or_bike |     11.31|       3.29|9.93e-06 |
 
-<img src="/post/2020-06-03-commute-analysis_files/figure-html/unnamed-chunk-5-1.png" width="100%" />
+<img src="/post/2020-06-03-commute-analysis_files/figure-html/unnamed-chunk-4-1.png" width="100%" />
 
 The overall length of my commute is 55.9 minutes (nearly 56 minutes), with a variance of 6.91 minutes. The longest segment of my commute is the green line, which comes in at an average of 22.3 minutes and a standard deviation of 4.08 minutes. The time it takes to travel on the red line is 11.6 minutes, with a standard deviation of 2.12 minutes. The waiting times for the red line and the green line are very similar: It takes 4.05 minutes to wait for the green line, with a standard deviation of 3.15 minutes, whereas it takes 3.18 minutes to wait for the red line, with a standard deviation of 3.17 minutes.
 
@@ -73,7 +71,7 @@ To plot these graphs, I created frequency histograms of each variable. The optim
 
 ### The Distribution for the Total Time
 
-<img src="/post/2020-06-03-commute-analysis_files/figure-html/unnamed-chunk-7-1.png" width="100%" />
+<img src="/post/2020-06-03-commute-analysis_files/figure-html/unnamed-chunk-6-1.png" width="100%" />
 
 Three different distributions were chosen to plot: The gamma, normal, and weibull. Upon visual estimation, the best distribution looks like the gamma. The gamma distribution had a shape parameter of 68.2686038 and a scale parameter of .8192905.
 
@@ -104,7 +102,7 @@ To solve this problem, I created a negative log-likelihood function for the data
 ## NULL
 ```
 
-<img src="/post/2020-06-03-commute-analysis_files/figure-html/unnamed-chunk-9-1.png" width="100%" />
+<img src="/post/2020-06-03-commute-analysis_files/figure-html/unnamed-chunk-8-1.png" width="100%" />
 
 
 
@@ -119,14 +117,14 @@ Next, a shifted chi-square negative log-likelihood model was created and minimiz
 ## [[1]]$objective
 ## [1] 291.5154
 ```
-<img src="/post/2020-06-03-commute-analysis_files/figure-html/unnamed-chunk-12-1.png" width="100%" /><img src="/post/2020-06-03-commute-analysis_files/figure-html/unnamed-chunk-12-2.png" width="100%" />
+<img src="/post/2020-06-03-commute-analysis_files/figure-html/unnamed-chunk-11-1.png" width="100%" /><img src="/post/2020-06-03-commute-analysis_files/figure-html/unnamed-chunk-11-2.png" width="100%" />
 
 To test which model was better, I performed a likelihood-ratio test by dividing the moinimized value from the shifted gamma distribution (291.4696) versus the shifted chi-square distribution (291.5154). When doing a likelihood-ratio test, in this case, the test statistic has a chi-square distribution with 1 degree of freedom. This is because there are two free parameters in the gamma distribution and only one in the chi-square distribution, and 2-1 is 1 degree of freedom.
 
 The result of the test wasa p-value of .75, meaning that it is not significant. Therefore, we fail to reject the null hypothesis that the more restricted model is better than the less restricted model. It seems that the chi-square distribution is better than the plain old gamma, even if only slightly. That being said, looking at the graph below there seem to be not that big of a visual difference.
 
 
-<img src="/post/2020-06-03-commute-analysis_files/figure-html/unnamed-chunk-13-1.png" width="100%" />
+<img src="/post/2020-06-03-commute-analysis_files/figure-html/unnamed-chunk-12-1.png" width="100%" />
 
 
 ```r
@@ -154,7 +152,7 @@ To answer this question, I subsetted my data into two vectors: the total time it
 
 
 
-<img src="/post/2020-06-03-commute-analysis_files/figure-html/unnamed-chunk-17-1.png" width="100%" />
+<img src="/post/2020-06-03-commute-analysis_files/figure-html/unnamed-chunk-16-1.png" width="100%" />
 Given that the histograms appear normal and they pass the Shapiro-Wilk test, it is possible to then do an F-test for variances with the two vectors.
 
 ```
@@ -175,7 +173,7 @@ The result of the test shows a marginally significant difference between the var
 This result is actually justifiable based on my commute patterns. Previous data collection has shown that there is a significant difference between commuting at rush hour and commuting at non-rush hour times: Commutig at rush hour is longer and has a larger variance compared to commuting in non rush hour times. Much of the data I took coming home was _not_ during rush hour because it was at 7 or 8 p.m. Contrarily, much of the data I took going to school was _during_ rush hour because it was at 8 or 9 a.m. Therefore, the effect of rush hour may explain this result.
 
 # Question 4: Which segments of my commute contribute the most to its overall length?
-<img src="/post/2020-06-03-commute-analysis_files/figure-html/unnamed-chunk-19-1.png" width="100%" />
+<img src="/post/2020-06-03-commute-analysis_files/figure-html/unnamed-chunk-18-1.png" width="100%" />
 Looking at the correlation plot values for total_time, we can see that the two darkest blues (and therefore the most positively correlated) are how long it took to wait for the green line and how long that ride on the green line was.
 
 This result makes sense, as the green line is the largest and therefore most significant part of my commute in terms of time taken up. It also has the standard deviation of all of the individual commute segments (i.e., commute segments that are not composites of the other segments.) Riders of the green line know how unreliable and spotty the service can be, especially in the part of the route that is above ground, and are often beleaguered by delays and the trains' inability to pass each other if one is stuck - now we have statistical evidence pointing to unreliability!
@@ -189,7 +187,7 @@ I used the correlation matrix to identify which variables are the most positivel
 
 ### Linear Modelling for the Green Line Time
 
-<img src="/post/2020-06-03-commute-analysis_files/figure-html/unnamed-chunk-21-1.png" width="100%" /><img src="/post/2020-06-03-commute-analysis_files/figure-html/unnamed-chunk-21-2.png" width="100%" /><img src="/post/2020-06-03-commute-analysis_files/figure-html/unnamed-chunk-21-3.png" width="100%" />
+<img src="/post/2020-06-03-commute-analysis_files/figure-html/unnamed-chunk-20-1.png" width="100%" /><img src="/post/2020-06-03-commute-analysis_files/figure-html/unnamed-chunk-20-2.png" width="100%" /><img src="/post/2020-06-03-commute-analysis_files/figure-html/unnamed-chunk-20-3.png" width="100%" />
 
 ```
 ## 
@@ -216,7 +214,7 @@ In this plot, we can see that the estimated relationship between the two variabl
 
 ### Linear Modelling for the Time Spent Waiting for the Green Line
 
-<img src="/post/2020-06-03-commute-analysis_files/figure-html/unnamed-chunk-22-1.png" width="100%" /><img src="/post/2020-06-03-commute-analysis_files/figure-html/unnamed-chunk-22-2.png" width="100%" /><img src="/post/2020-06-03-commute-analysis_files/figure-html/unnamed-chunk-22-3.png" width="100%" />
+<img src="/post/2020-06-03-commute-analysis_files/figure-html/unnamed-chunk-21-1.png" width="100%" /><img src="/post/2020-06-03-commute-analysis_files/figure-html/unnamed-chunk-21-2.png" width="100%" /><img src="/post/2020-06-03-commute-analysis_files/figure-html/unnamed-chunk-21-3.png" width="100%" />
 
 ```
 ## 

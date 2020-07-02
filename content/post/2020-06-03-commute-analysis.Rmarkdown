@@ -34,10 +34,6 @@ Ever since coming to campus in Fall 2017, I have become obsessed with timing my 
 
 This is a more in-depth followup to a previous post on my statistics blog which can be found [here](https://graphmyundergrad.rbind.io/2019/06/27/tracking-my-nightmarish-commute/). Previous analyses have shown that commuting at rush hour took about five minutes longer than not commuting at rush hour.
 
-```{r, out.width='100%', echo=FALSE}
-knitr::include_graphics("commute_map.png")
-```
-
 ## Data
 
 The data that I'm using has been painstakingly(!) collected across six months of commuting to school in a convenience sampling method. The structure of the dataset is as follows:
