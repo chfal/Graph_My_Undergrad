@@ -17,6 +17,10 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
     name = "GitHub"
     url = "https://github.com/chfal"
 
+[[menu.main]]
+    name = "Instagram"
+    url = "https://www.instagram.com/graphmyundergrad/"
+    
 [params]
     description = "A journey through biology, statistics, and R."
 
