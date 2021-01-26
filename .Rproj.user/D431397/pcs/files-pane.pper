@@ -1,9 +1,9 @@
 {
-    "path" : "~/GRAPH_MY_UNDERGRAD/BlogDown",
-    "sortOrder" : [
+    "path": "~/GRAPH_MY_UNDERGRAD/BlogDown",
+    "sortOrder": [
         {
-            "ascending" : true,
-            "columnIndex" : 2
+            "ascending": true,
+            "columnIndex": 2
         }
     ]
 }

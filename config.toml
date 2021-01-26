@@ -1,5 +1,5 @@
 baseurl = "/"
-relativeurls= true
+relativeurls= false
 languageCode = "en-us"
 title = "Graph My Undergrad"
 theme = "hugo-lithium"
@@ -34,7 +34,6 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
     MathJaxVersion = "2.7.5"
 
     # path to the favicon, under "static"
-    favicon = "favicon3.ico"
 
     [params.logo]
     url = "logo.jpg"
