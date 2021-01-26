@@ -7,8 +7,6 @@ categories: []
 tags: []
 ---
 
-```r
-plot(c(1,2,3,4,5))
-```
+Thanks to a friend's quick thinking (and an update of the Hugo Lithium theme), I am now back up and running!
 
-<img src="/post/2021-01-26-post-this-thing_files/figure-html/unnamed-chunk-1-1.png" width="672" />
+In 2021, I hope to be posting about Linear Algebra, my senior thesis (which was recently published in the _Biological Journal of the Linnnean Society_ found [here](https://academic.oup.com/biolinnean/article-abstract/131/2/304/5899521)) and the Covid-19 pandemic which I have both researched and co-taught a course in. I also look forward to posting more Fitbit and sleep cycle data, commute data, and text analyses!
