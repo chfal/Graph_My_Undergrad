@@ -1,35 +1,29 @@
-baseurl = "/"
+baseurl = "https://example.org"
 languageCode = "en-us"
-title = "A Hugo website"
-theme = "hugo-lithium"
+title = "Lithium Theme"
+theme = "hugo-lithium-theme"
 googleAnalytics = ""
 disqusShortname = ""
-ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
+disableKinds = ["taxonomy", "taxonomyTerm", "section", "404"]
 
 [permalinks]
-    post = "/:year/:month/:day/:slug/"
+    post = "/:year/:month/:day/:title/"
+    page = "/:title/"
 
 [[menu.main]]
     name = "About"
     url = "/about/"
 [[menu.main]]
     name = "GitHub"
-    url = "https://github.com/rstudio/blogdown"
+    url = ""
 [[menu.main]]
     name = "Twitter"
-    url = "https://twitter.com/rstudio"
+    url = ""
 
 [params]
-    description = "A website built through Hugo and blogdown."
+    mainSections = ["post"]
 
-    # options for highlight.js (version, additional languages, and theme)
-    highlightjsVersion = "9.12.0"
-    highlightjsCDN = "//cdnjs.cloudflare.com/ajax/libs"
-    highlightjsLang = ["r", "yaml"]
-    highlightjsTheme = "github"
-
-    MathJaxCDN = "//cdnjs.cloudflare.com/ajax/libs"
-    MathJaxVersion = "2.7.5"
+    description = ""
 
     # path to the favicon, under "static"
     favicon = "favicon.ico"
@@ -39,4 +33,7 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
     width = 50
     height = 50
     alt = "Logo"
+
+    [params.icon]
+    url = "favicon.ico"
 
